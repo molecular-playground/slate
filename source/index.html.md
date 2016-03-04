@@ -18,7 +18,7 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the Molectular Playground API
 
 We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
@@ -28,141 +28,136 @@ This example API documentation page was created with [Slate](https://github.com/
 
 > To authorize, use this code:
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+```javascript
+    noCodeHereYet```
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+Hello!
 </aside>
 
-# Kittens
+# ms-users
 
-## Get All Kittens
+## /
 
-```ruby
-require 'kittn'
+### #GET 
+Params: none.  
+Returns: array of `user` objects.  
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
+Each object is an index in the array.
+All users in the database will be returned.
 
-```python
-import kittn
+This is an unauthenticated endpoint, meaning that **anyone** will receive responses.
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
+##### DEPRECATION WARNING
 
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
+**This enpoint is being deprecated.  It will be inexistent in all subsequent 
+versions of this API.**  See the ms-users-auth microservice for alternatives.
 
-> The above command returns JSON structured like this:
+### #PUT
+Creates a new user.
 
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
+Returns: "User has been created!"
 
-This endpoint retrieves all kittens.
+Params (must be Body parameters in raw JSON format):
 
-### HTTP Request
+    {
+      "username": "some_username",
+        "password": "some_password",
+        "email": "some_email",
+        "location": "some_location"
+    }
 
-`GET http://example.com/api/kittens`
+Location is optional. This is an unauthenticated endpoint.
 
-### Query Parameters
+### #POST
+Updates a user object.
 
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+Params: 
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
+      {
+        "username": "user_name",
+        "location": "some_location"
+      }
+      
+Both of these parameters are optional..?
+  
+This is an authenticated endpoint.
 
-## Get a Specific Kitten
+Returns "Success" OR `some_probably_nondescriptive_error`
+# /:username
+Where `:username` is replaced by (you guessed it!) a username that exists in the database.
 
-```ruby
-require 'kittn'
+### #GET
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
+Params: none.
 
-```python
-import kittn
+Returns: one user object. 
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
+This is an unauthenticated endpoint.
 
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
+### #DELETE
+Deletes a single user.
 
-> The above command returns JSON structured like this:
+Params: none.
 
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
+Returns: "Deleted `user_name`" OR `some_error_message`.
 
-This endpoint retrieves a specific kitten.
+This is an unauthenticated endpoint.
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+# /validate
 
-### HTTP Request
+### #POST
+Sets a user's `validated` property to `true`
 
-`GET http://example.com/kittens/<ID>`
+Params (must be raw JSON in `request.body `): 
 
-### URL Parameters
+      {
+       "email": "email_addr_of_user",
+       "key": "long_string_sent_in_user_validation_email"
+      }
+      
+Returns "Validated `email_address`"
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+This is an unauthenticaed endpoint.
 
+# ms-email
+# MS-EMAIL Endpoints v0.0.0
+
+Each section in this document contains all valid HTTP verbs that can
+be called.  Section headers are the route.
+
+# /validate
+
+### #PUT
+Sends an account validation email to a (new) user.
+
+Params (must be raw JSON in request.Body):
+       
+       {
+        "email": "email_of_user_to_validate",
+        "link": "full_url_with_validation_key_to_validate_user"
+        }
+        
+Returns: "Message sent: `mailer_success_response_msg`" OR `descriptive_error_msg`.
+
+This is an unauthenticated endpoint.
+
+# /general
+
+### #PUT
+Sends an email to an address. Request params form the email.
+
+Params (must be raw JSON in request.Body): 
+
+        {
+         "email": "to_email_address",
+         "subject": "your_subject",
+         "html": "html_formatted_email_body"
+         "text": "plaintext_email_body_as_fallback"
+        }
+        
+Returns: "Message sent: `mailer_success_response_msg`" OR `descriptive_error_msg`.
+
+This is an unauthenticated endpoint.
+
+# The End?

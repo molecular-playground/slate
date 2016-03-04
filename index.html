@@ -121,7 +121,7 @@
       <div class="content">
         <h1 id="introduction">Introduction</h1>
 
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Welcome to the Molectular Playground API</p>
 
 <p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
 
@@ -132,150 +132,139 @@
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<pre class="highlight javascript"><code>    <span class="nx">noCodeHereYet</span><span class="err">```</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="nx">aside</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"notice"</span><span class="o">&gt;</span>
+<span class="nx">Hello</span><span class="o">!</span>
+<span class="o">&lt;</span><span class="sr">/aside</span><span class="err">&gt;
+</span>
+<span class="err">#</span> <span class="nx">ms</span><span class="o">-</span><span class="nx">users</span>
+
+<span class="err">##</span> <span class="o">/</span>
+
+<span class="err">###</span> <span class="err">#</span><span class="nx">GET</span> 
+<span class="nx">Params</span><span class="err">:</span> <span class="nx">none</span><span class="p">.</span>  
+<span class="nx">Returns</span><span class="err">:</span> <span class="nx">array</span> <span class="nx">of</span> <span class="err">`</span><span class="nx">user</span><span class="err">`</span> <span class="nx">objects</span><span class="p">.</span>  
+
+<span class="nx">Each</span> <span class="nx">object</span> <span class="nx">is</span> <span class="nx">an</span> <span class="nx">index</span> <span class="k">in</span> <span class="nx">the</span> <span class="nx">array</span><span class="p">.</span>
+<span class="nx">All</span> <span class="nx">users</span> <span class="k">in</span> <span class="nx">the</span> <span class="nx">database</span> <span class="nx">will</span> <span class="nx">be</span> <span class="nx">returned</span><span class="p">.</span>
+
+<span class="nx">This</span> <span class="nx">is</span> <span class="nx">an</span> <span class="nx">unauthenticated</span> <span class="nx">endpoint</span><span class="p">,</span> <span class="nx">meaning</span> <span class="nx">that</span> <span class="o">**</span><span class="nx">anyone</span><span class="o">**</span> <span class="nx">will</span> <span class="nx">receive</span> <span class="nx">responses</span><span class="p">.</span>
+
+<span class="err">#####</span> <span class="nx">DEPRECATION</span> <span class="nx">WARNING</span>
+
+<span class="o">**</span><span class="nx">This</span> <span class="nx">enpoint</span> <span class="nx">is</span> <span class="nx">being</span> <span class="nx">deprecated</span><span class="p">.</span>  <span class="nx">It</span> <span class="nx">will</span> <span class="nx">be</span> <span class="nx">inexistent</span> <span class="k">in</span> <span class="nx">all</span> <span class="nx">subsequent</span> 
+<span class="nx">versions</span> <span class="nx">of</span> <span class="k">this</span> <span class="nx">API</span><span class="p">.</span><span class="o">**</span>  <span class="nx">See</span> <span class="nx">the</span> <span class="nx">ms</span><span class="o">-</span><span class="nx">users</span><span class="o">-</span><span class="nx">auth</span> <span class="nx">microservice</span> <span class="k">for</span> <span class="nx">alternatives</span><span class="p">.</span>
+
+<span class="err">###</span> <span class="err">#</span><span class="nx">PUT</span>
+<span class="nx">Creates</span> <span class="nx">a</span> <span class="k">new</span> <span class="nx">user</span><span class="p">.</span>
+
+<span class="nl">Returns</span><span class="p">:</span> <span class="s2">"User has been created!"</span>
+
+<span class="nx">Params</span> <span class="p">(</span><span class="nx">must</span> <span class="nx">be</span> <span class="nx">Body</span> <span class="nx">parameters</span> <span class="k">in</span> <span class="nx">raw</span> <span class="nx">JSON</span> <span class="nx">format</span><span class="p">)</span><span class="err">:</span>
+
+    <span class="p">{</span>
+      <span class="s2">"username"</span><span class="err">:</span> <span class="s2">"some_username"</span><span class="p">,</span>
+        <span class="s2">"password"</span><span class="err">:</span> <span class="s2">"some_password"</span><span class="p">,</span>
+        <span class="s2">"email"</span><span class="err">:</span> <span class="s2">"some_email"</span><span class="p">,</span>
+        <span class="s2">"location"</span><span class="err">:</span> <span class="s2">"some_location"</span>
+    <span class="p">}</span>
+
+<span class="nx">Location</span> <span class="nx">is</span> <span class="nx">optional</span><span class="p">.</span> <span class="nx">This</span> <span class="nx">is</span> <span class="nx">an</span> <span class="nx">unauthenticated</span> <span class="nx">endpoint</span><span class="p">.</span>
+
+<span class="err">###</span> <span class="err">#</span><span class="nx">POST</span>
+<span class="nx">Updates</span> <span class="nx">a</span> <span class="nx">user</span> <span class="nx">object</span><span class="p">.</span>
+
+<span class="nl">Params</span><span class="p">:</span> 
+
+      <span class="p">{</span>
+        <span class="s2">"username"</span><span class="err">:</span> <span class="s2">"user_name"</span><span class="p">,</span>
+        <span class="s2">"location"</span><span class="err">:</span> <span class="s2">"some_location"</span>
+      <span class="p">}</span>
+
+<span class="nx">Both</span> <span class="nx">of</span> <span class="nx">these</span> <span class="nx">parameters</span> <span class="nx">are</span> <span class="nx">optional</span><span class="p">..?</span>
+
+<span class="nx">This</span> <span class="nx">is</span> <span class="nx">an</span> <span class="nx">authenticated</span> <span class="nx">endpoint</span><span class="p">.</span>
+
+<span class="nx">Returns</span> <span class="s2">"Success"</span> <span class="nx">OR</span> <span class="err">`</span><span class="nx">some_probably_nondescriptive_error</span><span class="err">`</span>
+<span class="err">#</span> <span class="o">/</span><span class="p">:</span><span class="nx">username</span>
+<span class="nx">Where</span> <span class="err">`:</span><span class="nx">username</span><span class="err">`</span> <span class="nx">is</span> <span class="nx">replaced</span> <span class="nx">by</span> <span class="p">(</span><span class="nx">you</span> <span class="nx">guessed</span> <span class="nx">it</span><span class="o">!</span><span class="p">)</span> <span class="nx">a</span> <span class="nx">username</span> <span class="nx">that</span> <span class="nx">exists</span> <span class="k">in</span> <span class="nx">the</span> <span class="nx">database</span><span class="p">.</span>
+
+<span class="err">###</span> <span class="err">#</span><span class="nx">GET</span>
+
+<span class="nl">Params</span><span class="p">:</span> <span class="nx">none</span><span class="p">.</span>
+
+<span class="nl">Returns</span><span class="p">:</span> <span class="nx">one</span> <span class="nx">user</span> <span class="nx">object</span><span class="p">.</span> 
+
+<span class="nx">This</span> <span class="nx">is</span> <span class="nx">an</span> <span class="nx">unauthenticated</span> <span class="nx">endpoint</span><span class="p">.</span>
+
+<span class="err">###</span> <span class="err">#</span><span class="nx">DELETE</span>
+<span class="nx">Deletes</span> <span class="nx">a</span> <span class="nx">single</span> <span class="nx">user</span><span class="p">.</span>
+
+<span class="nl">Params</span><span class="p">:</span> <span class="nx">none</span><span class="p">.</span>
+
+<span class="nl">Returns</span><span class="p">:</span> <span class="s2">"Deleted `user_name`"</span> <span class="nx">OR</span> <span class="err">`</span><span class="nx">some_error_message</span><span class="err">`</span><span class="p">.</span>
+
+<span class="nx">This</span> <span class="nx">is</span> <span class="nx">an</span> <span class="nx">unauthenticated</span> <span class="nx">endpoint</span><span class="p">.</span>
+
+<span class="err">#</span> <span class="o">/</span><span class="nx">validate</span>
+
+<span class="err">###</span> <span class="err">#</span><span class="nx">POST</span>
+<span class="nx">Sets</span> <span class="nx">a</span> <span class="nx">user</span><span class="err">'</span><span class="nx">s</span> <span class="err">`</span><span class="nx">validated</span><span class="err">`</span> <span class="nx">property</span> <span class="nx">to</span> <span class="err">`</span><span class="kc">true</span><span class="err">`</span>
+
+<span class="nx">Params</span> <span class="p">(</span><span class="nx">must</span> <span class="nx">be</span> <span class="nx">raw</span> <span class="nx">JSON</span> <span class="k">in</span> <span class="err">`</span><span class="nx">request</span><span class="p">.</span><span class="nx">body</span> <span class="err">`</span><span class="p">)</span><span class="err">:</span> 
+
+      <span class="p">{</span>
+       <span class="s2">"email"</span><span class="err">:</span> <span class="s2">"email_addr_of_user"</span><span class="p">,</span>
+       <span class="s2">"key"</span><span class="err">:</span> <span class="s2">"long_string_sent_in_user_validation_email"</span>
+      <span class="p">}</span>
+
+<span class="nx">Returns</span> <span class="s2">"Validated `email_address`"</span>
+
+<span class="nx">This</span> <span class="nx">is</span> <span class="nx">an</span> <span class="nx">unauthenticaed</span> <span class="nx">endpoint</span><span class="p">.</span>
+
+<span class="err">#</span> <span class="nx">ms</span><span class="o">-</span><span class="nx">email</span>
+<span class="err">#</span> <span class="nx">MS</span><span class="o">-</span><span class="nx">EMAIL</span> <span class="nx">Endpoints</span> <span class="nx">v0</span><span class="p">.</span><span class="mf">0.0</span>
+
+<span class="nx">Each</span> <span class="nx">section</span> <span class="k">in</span> <span class="k">this</span> <span class="nb">document</span> <span class="nx">contains</span> <span class="nx">all</span> <span class="nx">valid</span> <span class="nx">HTTP</span> <span class="nx">verbs</span> <span class="nx">that</span> <span class="nx">can</span>
+<span class="nx">be</span> <span class="nx">called</span><span class="p">.</span>  <span class="nx">Section</span> <span class="nx">headers</span> <span class="nx">are</span> <span class="nx">the</span> <span class="nx">route</span><span class="p">.</span>
+
+<span class="err">#</span> <span class="o">/</span><span class="nx">validate</span>
+
+<span class="err">###</span> <span class="err">#</span><span class="nx">PUT</span>
+<span class="nx">Sends</span> <span class="nx">an</span> <span class="nx">account</span> <span class="nx">validation</span> <span class="nx">email</span> <span class="nx">to</span> <span class="nx">a</span> <span class="p">(</span><span class="k">new</span><span class="p">)</span> <span class="nx">user</span><span class="p">.</span>
+
+<span class="nx">Params</span> <span class="p">(</span><span class="nx">must</span> <span class="nx">be</span> <span class="nx">raw</span> <span class="nx">JSON</span> <span class="k">in</span> <span class="nx">request</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span><span class="err">:</span>
+
+       <span class="p">{</span>
+        <span class="s2">"email"</span><span class="err">:</span> <span class="s2">"email_of_user_to_validate"</span><span class="p">,</span>
+        <span class="s2">"link"</span><span class="err">:</span> <span class="s2">"full_url_with_validation_key_to_validate_user"</span>
+        <span class="p">}</span>
+
+<span class="nl">Returns</span><span class="p">:</span> <span class="s2">"Message sent: `mailer_success_response_msg`"</span> <span class="nx">OR</span> <span class="err">`</span><span class="nx">descriptive_error_msg</span><span class="err">`</span><span class="p">.</span>
+
+<span class="nx">This</span> <span class="nx">is</span> <span class="nx">an</span> <span class="nx">unauthenticated</span> <span class="nx">endpoint</span><span class="p">.</span>
+
+<span class="err">#</span> <span class="o">/</span><span class="nx">general</span>
+
+<span class="err">###</span> <span class="err">#</span><span class="nx">PUT</span>
+<span class="nx">Sends</span> <span class="nx">an</span> <span class="nx">email</span> <span class="nx">to</span> <span class="nx">an</span> <span class="nx">address</span><span class="p">.</span> <span class="nx">Request</span> <span class="nx">params</span> <span class="nx">form</span> <span class="nx">the</span> <span class="nx">email</span><span class="p">.</span>
+
+<span class="nx">Params</span> <span class="p">(</span><span class="nx">must</span> <span class="nx">be</span> <span class="nx">raw</span> <span class="nx">JSON</span> <span class="k">in</span> <span class="nx">request</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span><span class="err">:</span> 
+
+        <span class="p">{</span>
+         <span class="s2">"email"</span><span class="err">:</span> <span class="s2">"to_email_address"</span><span class="p">,</span>
+         <span class="s2">"subject"</span><span class="err">:</span> <span class="s2">"your_subject"</span><span class="p">,</span>
+         <span class="s2">"html"</span><span class="err">:</span> <span class="s2">"html_formatted_email_body"</span>
+         <span class="s2">"text"</span><span class="err">:</span> <span class="s2">"plaintext_email_body_as_fallback"</span>
+        <span class="p">}</span>
+
+<span class="nl">Returns</span><span class="p">:</span> <span class="s2">"Message sent: `mailer_success_response_msg`"</span> <span class="nx">OR</span> <span class="err">`</span><span class="nx">descriptive_error_msg</span><span class="err">`</span><span class="p">.</span>
+
+<span class="nx">This</span> <span class="nx">is</span> <span class="nx">an</span> <span class="nx">unauthenticated</span> <span class="nx">endpoint</span><span class="p">.</span>
+
+<span class="err">#</span> <span class="nx">The</span> <span class="nx">End</span><span class="p">?</span>
 </code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-
-<blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-<h1 id="kittens">Kittens</h1>
-
-<h2 id="get-all-kittens">Get All Kittens</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-
-<p>This endpoint retrieves all kittens.</p>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://example.com/api/kittens</code></p>
-
-<h3 id="query-parameters">Query Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-<h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can&rsquo;t use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
-
-<h3 id="url-parameters">URL Parameters</h3>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
 
           <h1 id="errors">Errors</h1>
 

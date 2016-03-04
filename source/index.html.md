@@ -11,7 +11,7 @@ search: true
 
 ---
 
-# `ms-<name>`
+# `ms-users`
 
 `ms-<name>` description.
 

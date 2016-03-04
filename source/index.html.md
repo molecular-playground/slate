@@ -7,21 +7,62 @@ language_tabs:
 search: true
 ---
 
-# Introduction
+# Molecular Playground API
 
-Welcome to the Molectular Playground API.
+---
 
-# Authentication
+# `ms-<name>`
 
-> To authorize, use this code:
+`ms-<name>` description.
 
-```javascript 
-noCodeHereYet
-```
+### Route:  `/`
 
-<aside class="notice">
-Hello!
-</aside>
+#### Verb: `GET`
+
+Description of route + verb.
+
+Parameters
+
+
+|   Parameter   |  Description  |
+|---------------|---------------|
+| `<parameter>` |`<description>`|
+
+#### Verb: `POST`
+
+Description of route + verb.
+
+Parameters
+
+
+|   Parameter   |  Description  |
+|---------------|---------------|
+| `<parameter>` |`<description>`|
+
+#### Verb: `PUT`
+
+Description of route + verb.
+
+Parameters
+
+
+|   Parameter   |  Description  |
+|---------------|---------------|
+| `<parameter>` |`<description>`|
+
+#### Verb: `DELETE`
+
+Description of route + verb.
+
+Parameters
+
+
+|   Parameter   |  Description  |
+|---------------|---------------|
+| `<parameter>` |`<description>`|
+
+---
+
 
 # ms-users
 
@@ -44,7 +85,7 @@ This is an unauthenticated endpoint, meaning that **anyone** will receive respon
 
 ##### DEPRECATION WARNING
 
-**This enpoint is being deprecated.  It will be inexistent in all subsequent 
+**This enpoint is being deprecated.  It will be inexistent in all subsequent
 versions of this API.**  See the ms-users-auth microservice for alternatives.
 
 ### #PUT
@@ -66,15 +107,15 @@ Location is optional. This is an unauthenticated endpoint.
 ### #POST
 Updates a user object.
 
-Params: 
+Params:
 
       {
         "username": "user_name",
         "location": "some_location"
       }
-      
+
 Both of these parameters are optional..?
-  
+
 This is an authenticated endpoint.
 
 Returns "Success" OR `some_probably_nondescriptive_error`
@@ -85,7 +126,7 @@ Where `:username` is replaced by (you guessed it!) a username that exists in the
 
 Params: none.
 
-Returns: one user object. 
+Returns: one user object.
 
 This is an unauthenticated endpoint.
 
@@ -103,13 +144,13 @@ This is an unauthenticated endpoint.
 ### #POST
 Sets a user's `validated` property to `true`
 
-Params (must be raw JSON in `request.body `): 
+Params (must be raw JSON in `request.body `):
 
       {
        "email": "email_addr_of_user",
        "key": "long_string_sent_in_user_validation_email"
       }
-      
+
 Returns "Validated `email_address`"
 
 This is an unauthenticaed endpoint.
@@ -125,12 +166,12 @@ be called.  Section headers are the route.
 Sends an account validation email to a (new) user.
 
 Params (must be raw JSON in request.Body):
-       
+
        {
         "email": "email_of_user_to_validate",
         "link": "full_url_with_validation_key_to_validate_user"
         }
-        
+
 Returns: "Message sent: `mailer_success_response_msg`" OR `descriptive_error_msg`.
 
 This is an unauthenticated endpoint.
@@ -140,7 +181,7 @@ This is an unauthenticated endpoint.
 ### #PUT
 Sends an email to an address. Request params form the email.
 
-Params (must be raw JSON in request.Body): 
+Params (must be raw JSON in request.Body):
 
         {
          "email": "to_email_address",
@@ -148,7 +189,7 @@ Params (must be raw JSON in request.Body):
          "html": "html_formatted_email_body"
          "text": "plaintext_email_body_as_fallback"
         }
-        
+
 Returns: "Message sent: `mailer_success_response_msg`" OR `descriptive_error_msg`.
 
 This is an unauthenticated endpoint.

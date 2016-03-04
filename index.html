@@ -113,21 +113,89 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="introduction">Introduction</h1>
+        <h1 id="molecular-playground-api">Molecular Playground API</h1>
 
-<p>Welcome to the Molectular Playground API.</p>
+<hr>
 
-<h1 id="authentication">Authentication</h1>
+<h1 id="ms-lt-name-gt"><code class="prettyprint">ms-&lt;name&gt;</code></h1>
 
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight javascript"><code><span class="nx">noCodeHereYet</span>
-</code></pre>
+<p><code class="prettyprint">ms-&lt;name&gt;</code> description.</p>
 
-<aside class="notice">
-Hello!
-</aside>
+<h3 id="route">Route:  <code class="prettyprint">/</code></h3>
+
+<h4 id="verb-get">Verb: <code class="prettyprint">GET</code></h4>
+
+<p>Description of route + verb.</p>
+
+<p>Parameters</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">&lt;parameter&gt;</code></td>
+<td><code class="prettyprint">&lt;description&gt;</code></td>
+</tr>
+</tbody></table>
+
+<h4 id="verb-post">Verb: <code class="prettyprint">POST</code></h4>
+
+<p>Description of route + verb.</p>
+
+<p>Parameters</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">&lt;parameter&gt;</code></td>
+<td><code class="prettyprint">&lt;description&gt;</code></td>
+</tr>
+</tbody></table>
+
+<h4 id="verb-put">Verb: <code class="prettyprint">PUT</code></h4>
+
+<p>Description of route + verb.</p>
+
+<p>Parameters</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">&lt;parameter&gt;</code></td>
+<td><code class="prettyprint">&lt;description&gt;</code></td>
+</tr>
+</tbody></table>
+
+<h4 id="verb-delete">Verb: <code class="prettyprint">DELETE</code></h4>
+
+<p>Description of route + verb.</p>
+
+<p>Parameters</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">&lt;parameter&gt;</code></td>
+<td><code class="prettyprint">&lt;description&gt;</code></td>
+</tr>
+</tbody></table>
+
+<hr>
 
 <h1 id="ms-users">ms-users</h1>
 
@@ -148,7 +216,7 @@ All users in the database will be returned.</p>
 
 <h5 id="deprecation-warning">DEPRECATION WARNING</h5>
 
-<p><strong>This enpoint is being deprecated.  It will be inexistent in all subsequent 
+<p><strong>This enpoint is being deprecated.  It will be inexistent in all subsequent
 versions of this API.</strong>  See the ms-users-auth microservice for alternatives.</p>
 
 <h3 id="put">#PUT</h3>
@@ -172,7 +240,7 @@ versions of this API.</strong>  See the ms-users-auth microservice for alternati
 
 <p>Updates a user object.</p>
 
-<p>Params: </p>
+<p>Params:</p>
 
 <p>{
         &ldquo;username&rdquo;: &ldquo;user_name&rdquo;,
@@ -193,7 +261,7 @@ versions of this API.</strong>  See the ms-users-auth microservice for alternati
 
 <p>Params: none.</p>
 
-<p>Returns: one user object. </p>
+<p>Returns: one user object.</p>
 
 <p>This is an unauthenticated endpoint.</p>
 
@@ -213,7 +281,7 @@ versions of this API.</strong>  See the ms-users-auth microservice for alternati
 
 <p>Sets a user&rsquo;s <code class="prettyprint">validated</code> property to <code class="prettyprint">true</code></p>
 
-<p>Params (must be raw JSON in <code class="prettyprint">request.body</code>): </p>
+<p>Params (must be raw JSON in <code class="prettyprint">request.body</code>):</p>
 
 <p>{
        &ldquo;email&rdquo;: &ldquo;email_addr_of_user&rdquo;,
@@ -252,7 +320,7 @@ be called.  Section headers are the route.</p>
 
 <p>Sends an email to an address. Request params form the email.</p>
 
-<p>Params (must be raw JSON in request.Body): </p>
+<p>Params (must be raw JSON in request.Body):</p>
 
 <p>{
          &ldquo;email&rdquo;: &ldquo;to_email_address&rdquo;,

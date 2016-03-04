@@ -132,139 +132,149 @@
 <blockquote>
 <p>To authorize, use this code:</p>
 </blockquote>
-<pre class="highlight javascript"><code>    <span class="nx">noCodeHereYet</span><span class="err">```</span>
 
-<span class="o">&lt;</span><span class="nx">aside</span> <span class="kr">class</span><span class="o">=</span><span class="s2">"notice"</span><span class="o">&gt;</span>
-<span class="nx">Hello</span><span class="o">!</span>
-<span class="o">&lt;</span><span class="sr">/aside</span><span class="err">&gt;
-</span>
-<span class="err">#</span> <span class="nx">ms</span><span class="o">-</span><span class="nx">users</span>
+<p><code class="prettyprint">javascript noCodeHereYet</code></p>
 
-<span class="err">##</span> <span class="o">/</span>
+<aside class="notice">
+Hello!
+</aside>
 
-<span class="err">###</span> <span class="err">#</span><span class="nx">GET</span> 
-<span class="nx">Params</span><span class="err">:</span> <span class="nx">none</span><span class="p">.</span>  
-<span class="nx">Returns</span><span class="err">:</span> <span class="nx">array</span> <span class="nx">of</span> <span class="err">`</span><span class="nx">user</span><span class="err">`</span> <span class="nx">objects</span><span class="p">.</span>  
+<h1 id="ms-users">ms-users</h1>
 
-<span class="nx">Each</span> <span class="nx">object</span> <span class="nx">is</span> <span class="nx">an</span> <span class="nx">index</span> <span class="k">in</span> <span class="nx">the</span> <span class="nx">array</span><span class="p">.</span>
-<span class="nx">All</span> <span class="nx">users</span> <span class="k">in</span> <span class="nx">the</span> <span class="nx">database</span> <span class="nx">will</span> <span class="nx">be</span> <span class="nx">returned</span><span class="p">.</span>
+<h2 id=">/</h2>
 
-<span class="nx">This</span> <span class="nx">is</span> <span class="nx">an</span> <span class="nx">unauthenticated</span> <span class="nx">endpoint</span><span class="p">,</span> <span class="nx">meaning</span> <span class="nx">that</span> <span class="o">**</span><span class="nx">anyone</span><span class="o">**</span> <span class="nx">will</span> <span class="nx">receive</span> <span class="nx">responses</span><span class="p">.</span>
+<h3 id="get">#GET</h3>
 
-<span class="err">#####</span> <span class="nx">DEPRECATION</span> <span class="nx">WARNING</span>
+<p>Params: none.<br>
+Returns: array of <code class="prettyprint">user</code> objects.  </p>
 
-<span class="o">**</span><span class="nx">This</span> <span class="nx">enpoint</span> <span class="nx">is</span> <span class="nx">being</span> <span class="nx">deprecated</span><span class="p">.</span>  <span class="nx">It</span> <span class="nx">will</span> <span class="nx">be</span> <span class="nx">inexistent</span> <span class="k">in</span> <span class="nx">all</span> <span class="nx">subsequent</span> 
-<span class="nx">versions</span> <span class="nx">of</span> <span class="k">this</span> <span class="nx">API</span><span class="p">.</span><span class="o">**</span>  <span class="nx">See</span> <span class="nx">the</span> <span class="nx">ms</span><span class="o">-</span><span class="nx">users</span><span class="o">-</span><span class="nx">auth</span> <span class="nx">microservice</span> <span class="k">for</span> <span class="nx">alternatives</span><span class="p">.</span>
+<p>Each object is an index in the array.
+All users in the database will be returned.</p>
 
-<span class="err">###</span> <span class="err">#</span><span class="nx">PUT</span>
-<span class="nx">Creates</span> <span class="nx">a</span> <span class="k">new</span> <span class="nx">user</span><span class="p">.</span>
+<p>This is an unauthenticated endpoint, meaning that <strong>anyone</strong> will receive responses.</p>
 
-<span class="nl">Returns</span><span class="p">:</span> <span class="s2">"User has been created!"</span>
+<h5 id="deprecation-warning">DEPRECATION WARNING</h5>
 
-<span class="nx">Params</span> <span class="p">(</span><span class="nx">must</span> <span class="nx">be</span> <span class="nx">Body</span> <span class="nx">parameters</span> <span class="k">in</span> <span class="nx">raw</span> <span class="nx">JSON</span> <span class="nx">format</span><span class="p">)</span><span class="err">:</span>
+<p><strong>This enpoint is being deprecated.  It will be inexistent in all subsequent 
+versions of this API.</strong>  See the ms-users-auth microservice for alternatives.</p>
 
-    <span class="p">{</span>
-      <span class="s2">"username"</span><span class="err">:</span> <span class="s2">"some_username"</span><span class="p">,</span>
-        <span class="s2">"password"</span><span class="err">:</span> <span class="s2">"some_password"</span><span class="p">,</span>
-        <span class="s2">"email"</span><span class="err">:</span> <span class="s2">"some_email"</span><span class="p">,</span>
-        <span class="s2">"location"</span><span class="err">:</span> <span class="s2">"some_location"</span>
-    <span class="p">}</span>
+<h3 id="put">#PUT</h3>
 
-<span class="nx">Location</span> <span class="nx">is</span> <span class="nx">optional</span><span class="p">.</span> <span class="nx">This</span> <span class="nx">is</span> <span class="nx">an</span> <span class="nx">unauthenticated</span> <span class="nx">endpoint</span><span class="p">.</span>
+<p>Creates a new user.</p>
 
-<span class="err">###</span> <span class="err">#</span><span class="nx">POST</span>
-<span class="nx">Updates</span> <span class="nx">a</span> <span class="nx">user</span> <span class="nx">object</span><span class="p">.</span>
+<p>Returns: &ldquo;User has been created!&rdquo;</p>
 
-<span class="nl">Params</span><span class="p">:</span> 
+<p>Params (must be Body parameters in raw JSON format):</p>
 
-      <span class="p">{</span>
-        <span class="s2">"username"</span><span class="err">:</span> <span class="s2">"user_name"</span><span class="p">,</span>
-        <span class="s2">"location"</span><span class="err">:</span> <span class="s2">"some_location"</span>
-      <span class="p">}</span>
+<p>{
+      &ldquo;username&rdquo;: &ldquo;some_username&rdquo;,
+        &ldquo;password&rdquo;: &ldquo;some_password&rdquo;,
+        &ldquo;email&rdquo;: &ldquo;some_email&rdquo;,
+        &ldquo;location&rdquo;: &ldquo;some_location&rdquo;
+    }</p>
 
-<span class="nx">Both</span> <span class="nx">of</span> <span class="nx">these</span> <span class="nx">parameters</span> <span class="nx">are</span> <span class="nx">optional</span><span class="p">..?</span>
+<p>Location is optional. This is an unauthenticated endpoint.</p>
 
-<span class="nx">This</span> <span class="nx">is</span> <span class="nx">an</span> <span class="nx">authenticated</span> <span class="nx">endpoint</span><span class="p">.</span>
+<h3 id="post">#POST</h3>
 
-<span class="nx">Returns</span> <span class="s2">"Success"</span> <span class="nx">OR</span> <span class="err">`</span><span class="nx">some_probably_nondescriptive_error</span><span class="err">`</span>
-<span class="err">#</span> <span class="o">/</span><span class="p">:</span><span class="nx">username</span>
-<span class="nx">Where</span> <span class="err">`:</span><span class="nx">username</span><span class="err">`</span> <span class="nx">is</span> <span class="nx">replaced</span> <span class="nx">by</span> <span class="p">(</span><span class="nx">you</span> <span class="nx">guessed</span> <span class="nx">it</span><span class="o">!</span><span class="p">)</span> <span class="nx">a</span> <span class="nx">username</span> <span class="nx">that</span> <span class="nx">exists</span> <span class="k">in</span> <span class="nx">the</span> <span class="nx">database</span><span class="p">.</span>
+<p>Updates a user object.</p>
 
-<span class="err">###</span> <span class="err">#</span><span class="nx">GET</span>
+<p>Params: </p>
 
-<span class="nl">Params</span><span class="p">:</span> <span class="nx">none</span><span class="p">.</span>
+<p>{
+        &ldquo;username&rdquo;: &ldquo;user_name&rdquo;,
+        &ldquo;location&rdquo;: &ldquo;some_location&rdquo;
+      }</p>
 
-<span class="nl">Returns</span><span class="p">:</span> <span class="nx">one</span> <span class="nx">user</span> <span class="nx">object</span><span class="p">.</span> 
+<p>Both of these parameters are optional..?</p>
 
-<span class="nx">This</span> <span class="nx">is</span> <span class="nx">an</span> <span class="nx">unauthenticated</span> <span class="nx">endpoint</span><span class="p">.</span>
+<p>This is an authenticated endpoint.</p>
 
-<span class="err">###</span> <span class="err">#</span><span class="nx">DELETE</span>
-<span class="nx">Deletes</span> <span class="nx">a</span> <span class="nx">single</span> <span class="nx">user</span><span class="p">.</span>
+<p>Returns &ldquo;Success&rdquo; OR <code class="prettyprint">some_probably_nondescriptive_error</code></p>
 
-<span class="nl">Params</span><span class="p">:</span> <span class="nx">none</span><span class="p">.</span>
+<h1 id="username">/:username</h1>
 
-<span class="nl">Returns</span><span class="p">:</span> <span class="s2">"Deleted `user_name`"</span> <span class="nx">OR</span> <span class="err">`</span><span class="nx">some_error_message</span><span class="err">`</span><span class="p">.</span>
+<p>Where <code class="prettyprint">:username</code> is replaced by (you guessed it!) a username that exists in the database.</p>
 
-<span class="nx">This</span> <span class="nx">is</span> <span class="nx">an</span> <span class="nx">unauthenticated</span> <span class="nx">endpoint</span><span class="p">.</span>
+<h3 id="get">#GET</h3>
 
-<span class="err">#</span> <span class="o">/</span><span class="nx">validate</span>
+<p>Params: none.</p>
 
-<span class="err">###</span> <span class="err">#</span><span class="nx">POST</span>
-<span class="nx">Sets</span> <span class="nx">a</span> <span class="nx">user</span><span class="err">'</span><span class="nx">s</span> <span class="err">`</span><span class="nx">validated</span><span class="err">`</span> <span class="nx">property</span> <span class="nx">to</span> <span class="err">`</span><span class="kc">true</span><span class="err">`</span>
+<p>Returns: one user object. </p>
 
-<span class="nx">Params</span> <span class="p">(</span><span class="nx">must</span> <span class="nx">be</span> <span class="nx">raw</span> <span class="nx">JSON</span> <span class="k">in</span> <span class="err">`</span><span class="nx">request</span><span class="p">.</span><span class="nx">body</span> <span class="err">`</span><span class="p">)</span><span class="err">:</span> 
+<p>This is an unauthenticated endpoint.</p>
 
-      <span class="p">{</span>
-       <span class="s2">"email"</span><span class="err">:</span> <span class="s2">"email_addr_of_user"</span><span class="p">,</span>
-       <span class="s2">"key"</span><span class="err">:</span> <span class="s2">"long_string_sent_in_user_validation_email"</span>
-      <span class="p">}</span>
+<h3 id="delete">#DELETE</h3>
 
-<span class="nx">Returns</span> <span class="s2">"Validated `email_address`"</span>
+<p>Deletes a single user.</p>
 
-<span class="nx">This</span> <span class="nx">is</span> <span class="nx">an</span> <span class="nx">unauthenticaed</span> <span class="nx">endpoint</span><span class="p">.</span>
+<p>Params: none.</p>
 
-<span class="err">#</span> <span class="nx">ms</span><span class="o">-</span><span class="nx">email</span>
-<span class="err">#</span> <span class="nx">MS</span><span class="o">-</span><span class="nx">EMAIL</span> <span class="nx">Endpoints</span> <span class="nx">v0</span><span class="p">.</span><span class="mf">0.0</span>
+<p>Returns: &ldquo;Deleted <code class="prettyprint">user_name</code>&rdquo; OR <code class="prettyprint">some_error_message</code>.</p>
 
-<span class="nx">Each</span> <span class="nx">section</span> <span class="k">in</span> <span class="k">this</span> <span class="nb">document</span> <span class="nx">contains</span> <span class="nx">all</span> <span class="nx">valid</span> <span class="nx">HTTP</span> <span class="nx">verbs</span> <span class="nx">that</span> <span class="nx">can</span>
-<span class="nx">be</span> <span class="nx">called</span><span class="p">.</span>  <span class="nx">Section</span> <span class="nx">headers</span> <span class="nx">are</span> <span class="nx">the</span> <span class="nx">route</span><span class="p">.</span>
+<p>This is an unauthenticated endpoint.</p>
 
-<span class="err">#</span> <span class="o">/</span><span class="nx">validate</span>
+<h1 id="validate">/validate</h1>
 
-<span class="err">###</span> <span class="err">#</span><span class="nx">PUT</span>
-<span class="nx">Sends</span> <span class="nx">an</span> <span class="nx">account</span> <span class="nx">validation</span> <span class="nx">email</span> <span class="nx">to</span> <span class="nx">a</span> <span class="p">(</span><span class="k">new</span><span class="p">)</span> <span class="nx">user</span><span class="p">.</span>
+<h3 id="post">#POST</h3>
 
-<span class="nx">Params</span> <span class="p">(</span><span class="nx">must</span> <span class="nx">be</span> <span class="nx">raw</span> <span class="nx">JSON</span> <span class="k">in</span> <span class="nx">request</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span><span class="err">:</span>
+<p>Sets a user&rsquo;s <code class="prettyprint">validated</code> property to <code class="prettyprint">true</code></p>
 
-       <span class="p">{</span>
-        <span class="s2">"email"</span><span class="err">:</span> <span class="s2">"email_of_user_to_validate"</span><span class="p">,</span>
-        <span class="s2">"link"</span><span class="err">:</span> <span class="s2">"full_url_with_validation_key_to_validate_user"</span>
-        <span class="p">}</span>
+<p>Params (must be raw JSON in <code class="prettyprint">request.body</code>): </p>
 
-<span class="nl">Returns</span><span class="p">:</span> <span class="s2">"Message sent: `mailer_success_response_msg`"</span> <span class="nx">OR</span> <span class="err">`</span><span class="nx">descriptive_error_msg</span><span class="err">`</span><span class="p">.</span>
+<p>{
+       &ldquo;email&rdquo;: &ldquo;email_addr_of_user&rdquo;,
+       &ldquo;key&rdquo;: &ldquo;long_string_sent_in_user_validation_email&rdquo;
+      }</p>
 
-<span class="nx">This</span> <span class="nx">is</span> <span class="nx">an</span> <span class="nx">unauthenticated</span> <span class="nx">endpoint</span><span class="p">.</span>
+<p>Returns &ldquo;Validated <code class="prettyprint">email_address</code>&rdquo;</p>
 
-<span class="err">#</span> <span class="o">/</span><span class="nx">general</span>
+<p>This is an unauthenticaed endpoint.</p>
 
-<span class="err">###</span> <span class="err">#</span><span class="nx">PUT</span>
-<span class="nx">Sends</span> <span class="nx">an</span> <span class="nx">email</span> <span class="nx">to</span> <span class="nx">an</span> <span class="nx">address</span><span class="p">.</span> <span class="nx">Request</span> <span class="nx">params</span> <span class="nx">form</span> <span class="nx">the</span> <span class="nx">email</span><span class="p">.</span>
+<h1 id="ms-email">ms-email</h1>
 
-<span class="nx">Params</span> <span class="p">(</span><span class="nx">must</span> <span class="nx">be</span> <span class="nx">raw</span> <span class="nx">JSON</span> <span class="k">in</span> <span class="nx">request</span><span class="p">.</span><span class="nx">Body</span><span class="p">)</span><span class="err">:</span> 
+<h1 id="ms-email-endpoints-v0-0-0">MS-EMAIL Endpoints v0.0.0</h1>
 
-        <span class="p">{</span>
-         <span class="s2">"email"</span><span class="err">:</span> <span class="s2">"to_email_address"</span><span class="p">,</span>
-         <span class="s2">"subject"</span><span class="err">:</span> <span class="s2">"your_subject"</span><span class="p">,</span>
-         <span class="s2">"html"</span><span class="err">:</span> <span class="s2">"html_formatted_email_body"</span>
-         <span class="s2">"text"</span><span class="err">:</span> <span class="s2">"plaintext_email_body_as_fallback"</span>
-        <span class="p">}</span>
+<p>Each section in this document contains all valid HTTP verbs that can
+be called.  Section headers are the route.</p>
 
-<span class="nl">Returns</span><span class="p">:</span> <span class="s2">"Message sent: `mailer_success_response_msg`"</span> <span class="nx">OR</span> <span class="err">`</span><span class="nx">descriptive_error_msg</span><span class="err">`</span><span class="p">.</span>
+<h1 id="validate">/validate</h1>
 
-<span class="nx">This</span> <span class="nx">is</span> <span class="nx">an</span> <span class="nx">unauthenticated</span> <span class="nx">endpoint</span><span class="p">.</span>
+<h3 id="put">#PUT</h3>
 
-<span class="err">#</span> <span class="nx">The</span> <span class="nx">End</span><span class="p">?</span>
-</code></pre>
+<p>Sends an account validation email to a (new) user.</p>
+
+<p>Params (must be raw JSON in request.Body):</p>
+
+<p>{
+        &ldquo;email&rdquo;: &ldquo;email_of_user_to_validate&rdquo;,
+        &ldquo;link&rdquo;: &ldquo;full_url_with_validation_key_to_validate_user&rdquo;
+        }</p>
+
+<p>Returns: &ldquo;Message sent: <code class="prettyprint">mailer_success_response_msg</code>&rdquo; OR <code class="prettyprint">descriptive_error_msg</code>.</p>
+
+<p>This is an unauthenticated endpoint.</p>
+
+<h1 id="general">/general</h1>
+
+<h3 id="put">#PUT</h3>
+
+<p>Sends an email to an address. Request params form the email.</p>
+
+<p>Params (must be raw JSON in request.Body): </p>
+
+<p>{
+         &ldquo;email&rdquo;: &ldquo;to_email_address&rdquo;,
+         &ldquo;subject&rdquo;: &ldquo;your_subject&rdquo;,
+         &ldquo;html&rdquo;: &ldquo;html_formatted_email_body&rdquo;
+         &ldquo;text&rdquo;: &ldquo;plaintext_email_body_as_fallback&rdquo;
+        }</p>
+
+<p>Returns: &ldquo;Message sent: <code class="prettyprint">mailer_success_response_msg</code>&rdquo; OR <code class="prettyprint">descriptive_error_msg</code>.</p>
+
+<p>This is an unauthenticated endpoint.</p>
+
+<h1 id="the-end">The End?</h1>
 
           <h1 id="errors">Errors</h1>
 

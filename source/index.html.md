@@ -1,32 +1,40 @@
----
-title: API Reference
+title: Molecular Playground API
 
 language_tabs:
   - javascript
 
 search: true
----
 
 # Molecular Playground API
 
----
+API calls are of the form:
 
-# `ms-users`
+`<verb> /api/<microserivce-prefix>[<route>]`
 
-`ms-<name>` description.
+e.g.
+
+`GET /api/users/`
+
+will return a `JSON` payload of all users in the system.
+
+# ms-users
+
+A microservice for accessing and modifying users.
+
+## Route Prefix: `/users`
 
 ### Route:  `/`
 
 #### Verb: `GET`
 
-Description of route + verb.
+Get all users
 
 Parameters
 
 
 |   Parameter   |  Description  |
 |---------------|---------------|
-| `<parameter>` |`<description>`|
+| N/A | N/A |o
 
 #### Verb: `POST`
 
@@ -60,8 +68,6 @@ Parameters
 |   Parameter   |  Description  |
 |---------------|---------------|
 | `<parameter>` |`<description>`|
-
----
 
 
 # ms-users
@@ -155,10 +161,69 @@ Returns "Validated `email_address`"
 
 This is an unauthenticaed endpoint.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # ms-email Endpoints v0.0.0
 
-Each section in this document contains all valid HTTP verbs that can
-be called.  Section headers are the route.
+
 
 ## /validate
 
@@ -176,22 +241,68 @@ Returns: "Message sent: `mailer_success_response_msg`" OR `descriptive_error_msg
 
 This is an unauthenticated endpoint.
 
-## /general
 
-### #PUT
-Sends an email to an address. Request params form the email.
+# ms-email
 
-Params (must be raw JSON in request.Body):
+`ms-email` is a microservice that allows for email sending from other molecular-playground pages.
 
-        {
-         "email": "to_email_address",
-         "subject": "your_subject",
-         "html": "html_formatted_email_body"
-         "text": "plaintext_email_body_as_fallback"
-        }
+## Route Prefix: `/email`
 
-Returns: "Message sent: `mailer_success_response_msg`" OR `descriptive_error_msg`.
+### Route:  `/general`
 
-This is an unauthenticated endpoint.
+#### Verb: `PUT`
 
-# The End?
+Sends an email to an address. Parameters form the body.
+All endpoints are unauthenticated, but are not going to be publicly exposed from the gateway.
+
+Parameters
+
+
+|   Parameter   |  Description  |
+|---------------|---------------|
+| `email` | the recipient's email address |
+| `subject` | the subject of the email |
+| `html` | the message body, formatted as html |
+| `text` | the message body, formatted as plaintext as a fallback|
+
+Return:
+
+| Type | Example |
+|------|---------|
+|string|success message or fail message|
+
+
+#### Verb: `POST`
+
+Description of route + verb.
+
+Parameters
+
+
+|   Parameter   |  Description  |
+|---------------|---------------|
+| `<parameter>` |`<description>`|
+
+#### Verb: `PUT`
+
+Description of route + verb.
+
+Parameters
+
+
+|   Parameter   |  Description  |
+|---------------|---------------|
+| `<parameter>` |`<description>`|
+
+#### Verb: `DELETE`
+
+Description of route + verb.
+
+Parameters
+
+
+|   Parameter   |  Description  |
+|---------------|---------------|
+| `<parameter>` |`<description>`|
+
+

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>API Documentation</title>
 
     <style>
       .highlight table td { padding: 5px; }
@@ -88,10 +88,10 @@
     </style>
     <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all.js"></script>
+      <script src="javascripts/all_nosearch.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;javascript&quot;]">
+  <body class="index" data-languages="[]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -101,31 +101,43 @@
     <div class="tocify-wrapper">
       <img src="images/logo.png" />
         <div class="lang-selector">
-              <a href="#" data-language-name="javascript">javascript</a>
         </div>
-        <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
-        </div>
-        <ul class="search-results"></ul>
       <div id="toc">
       </div>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="molecular-playground-api">Molecular Playground API</h1>
+        <p>title: Molecular Playground API</p>
 
-<hr>
+<p>language_tabs:
+  - javascript</p>
 
-<h1 id="ms-users"><code class="prettyprint">ms-users</code></h1>
+<p>search: true</p>
 
-<p><code class="prettyprint">ms-&lt;name&gt;</code> description.</p>
+<h1 id="molecular-playground-api">Molecular Playground API</h1>
+
+<p>API calls are of the form:</p>
+
+<p><code class="prettyprint">&lt;verb&gt; /api/&lt;microserivce-prefix&gt;[&lt;route&gt;]</code></p>
+
+<p>e.g.</p>
+
+<p><code class="prettyprint">GET /api/users/</code></p>
+
+<p>will return a <code class="prettyprint">JSON</code> payload of all users in the system.</p>
+
+<h1 id="ms-users">ms-users</h1>
+
+<p>A microservice for accessing and modifying users.</p>
+
+<h2 id="route-prefix-users">Route Prefix: <code class="prettyprint">/users</code></h2>
 
 <h3 id="route">Route:  <code class="prettyprint">/</code></h3>
 
 <h4 id="verb-get">Verb: <code class="prettyprint">GET</code></h4>
 
-<p>Description of route + verb.</p>
+<p>Get all users</p>
 
 <p>Parameters</p>
 
@@ -136,8 +148,8 @@
 </tr>
 </thead><tbody>
 <tr>
-<td><code class="prettyprint">&lt;parameter&gt;</code></td>
-<td><code class="prettyprint">&lt;description&gt;</code></td>
+<td>N/A</td>
+<td>N/A</td>
 </tr>
 </tbody></table>
 
@@ -194,8 +206,6 @@
 <td><code class="prettyprint">&lt;description&gt;</code></td>
 </tr>
 </tbody></table>
-
-<hr>
 
 <h1 id="ms-users">ms-users</h1>
 
@@ -294,9 +304,6 @@ versions of this API.</strong>  See the ms-users-auth microservice for alternati
 
 <h1 id="ms-email-endpoints-v0-0-0">ms-email Endpoints v0.0.0</h1>
 
-<p>Each section in this document contains all valid HTTP verbs that can
-be called.  Section headers are the route.</p>
-
 <h2 id="validate">/validate</h2>
 
 <h3 id="put">#PUT</h3>
@@ -314,31 +321,116 @@ be called.  Section headers are the route.</p>
 
 <p>This is an unauthenticated endpoint.</p>
 
-<h2 id="general">/general</h2>
+<h1 id="ms-email">ms-email</h1>
 
-<h3 id="put">#PUT</h3>
+<p><code class="prettyprint">ms-email</code> is a microservice that allows for email sending from other molecular-playground pages.</p>
 
-<p>Sends an email to an address. Request params form the email.</p>
+<h2 id="route-prefix-email">Route Prefix: <code class="prettyprint">/email</code></h2>
 
-<p>Params (must be raw JSON in request.Body):</p>
+<h3 id="route-general">Route:  <code class="prettyprint">/general</code></h3>
 
-<p>{
-         &ldquo;email&rdquo;: &ldquo;to_email_address&rdquo;,
-         &ldquo;subject&rdquo;: &ldquo;your_subject&rdquo;,
-         &ldquo;html&rdquo;: &ldquo;html_formatted_email_body&rdquo;
-         &ldquo;text&rdquo;: &ldquo;plaintext_email_body_as_fallback&rdquo;
-        }</p>
+<h4 id="verb-put">Verb: <code class="prettyprint">PUT</code></h4>
 
-<p>Returns: &ldquo;Message sent: <code class="prettyprint">mailer_success_response_msg</code>&rdquo; OR <code class="prettyprint">descriptive_error_msg</code>.</p>
+<p>Sends an email to an address. Parameters form the body.
+All endpoints are unauthenticated, but are not going to be publicly exposed from the gateway.</p>
 
-<p>This is an unauthenticated endpoint.</p>
+<p>Parameters</p>
 
-<h1 id="the-end">The End?</h1>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">email</code></td>
+<td>the recipient&rsquo;s email address</td>
+</tr>
+<tr>
+<td><code class="prettyprint">subject</code></td>
+<td>the subject of the email</td>
+</tr>
+<tr>
+<td><code class="prettyprint">html</code></td>
+<td>the message body, formatted as html</td>
+</tr>
+<tr>
+<td><code class="prettyprint">text</code></td>
+<td>the message body, formatted as plaintext as a fallback</td>
+</tr>
+</tbody></table>
+
+<p>Return:</p>
+
+<table><thead>
+<tr>
+<th>Type</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>string</td>
+<td>success message or fail message</td>
+</tr>
+</tbody></table>
+
+<h4 id="verb-post">Verb: <code class="prettyprint">POST</code></h4>
+
+<p>Description of route + verb.</p>
+
+<p>Parameters</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">&lt;parameter&gt;</code></td>
+<td><code class="prettyprint">&lt;description&gt;</code></td>
+</tr>
+</tbody></table>
+
+<h4 id="verb-put">Verb: <code class="prettyprint">PUT</code></h4>
+
+<p>Description of route + verb.</p>
+
+<p>Parameters</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">&lt;parameter&gt;</code></td>
+<td><code class="prettyprint">&lt;description&gt;</code></td>
+</tr>
+</tbody></table>
+
+<h4 id="verb-delete">Verb: <code class="prettyprint">DELETE</code></h4>
+
+<p>Description of route + verb.</p>
+
+<p>Parameters</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">&lt;parameter&gt;</code></td>
+<td><code class="prettyprint">&lt;description&gt;</code></td>
+</tr>
+</tbody></table>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="javascript">javascript</a>
           </div>
       </div>
     </div>

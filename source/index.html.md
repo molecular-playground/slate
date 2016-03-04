@@ -2,34 +2,22 @@
 title: API Reference
 
 language_tabs:
-  - shell
-  - ruby
-  - python
-
-toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
-
-includes:
-  - errors
+  - javascript
 
 search: true
 ---
 
 # Introduction
 
-Welcome to the Molectular Playground API
-
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+Welcome to the Molectular Playground API.
 
 # Authentication
 
 > To authorize, use this code:
 
-```javascript
-    noCodeHereYet```
+```javascript 
+noCodeHereYet
+```
 
 <aside class="notice">
 Hello!
@@ -37,11 +25,17 @@ Hello!
 
 # ms-users
 
-## /
+## Get All Users
 
-### #GET 
+HTTP Request: `GET /`
+
+
+
+Returns all users.
 Params: none.  
 Returns: array of `user` objects.  
+
+http
 
 Each object is an index in the array.
 All users in the database will be returned.
@@ -84,7 +78,7 @@ Both of these parameters are optional..?
 This is an authenticated endpoint.
 
 Returns "Success" OR `some_probably_nondescriptive_error`
-# /:username
+## /:username
 Where `:username` is replaced by (you guessed it!) a username that exists in the database.
 
 ### #GET
@@ -104,7 +98,7 @@ Returns: "Deleted `user_name`" OR `some_error_message`.
 
 This is an unauthenticated endpoint.
 
-# /validate
+## /validate
 
 ### #POST
 Sets a user's `validated` property to `true`
@@ -120,13 +114,12 @@ Returns "Validated `email_address`"
 
 This is an unauthenticaed endpoint.
 
-# ms-email
-# MS-EMAIL Endpoints v0.0.0
+# ms-email Endpoints v0.0.0
 
 Each section in this document contains all valid HTTP verbs that can
 be called.  Section headers are the route.
 
-# /validate
+## /validate
 
 ### #PUT
 Sends an account validation email to a (new) user.
@@ -142,7 +135,7 @@ Returns: "Message sent: `mailer_success_response_msg`" OR `descriptive_error_msg
 
 This is an unauthenticated endpoint.
 
-# /general
+## /general
 
 ### #PUT
 Sends an email to an address. Request params form the email.

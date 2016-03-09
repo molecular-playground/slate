@@ -1,250 +1,87 @@
-title: Molecular Playground API
-
-language_tabs:
-  - javascript
-
-search: true
-
 # Molecular Playground API
 
 API calls are of the form:
 
-`<verb> /api/<microserivce-prefix>[<route>]`
+`<verb> <host>/api/<microserivce-prefix>[<route>]`
 
 e.g.
 
 `GET /api/users/`
 
-will return a `JSON` payload of all users in the system.
+will return a `JSON` payload containing all users in the system.
 
 # ms-users
 
 A microservice for accessing and modifying users.
 
-## Route Prefix: `/users`
+## Route Prefix: `/user`
 
 ### Route:  `/`
 
 #### Verb: `GET`
 
-Get all users
-
-Parameters
-
+Get all users.
 
 |   Parameter   |  Description  |
 |---------------|---------------|
-| N/A | N/A |o
+| N/A | N/A |
 
 #### Verb: `POST`
 
-Description of route + verb.
+***Authentication required***
 
-Parameters
-
+Updates a user object.
 
 |   Parameter   |  Description  |
 |---------------|---------------|
-| `<parameter>` |`<description>`|
+| username | the username |
+| location | (optional) the "stringified" location of the Molecular Playground installation |
 
 #### Verb: `PUT`
 
-Description of route + verb.
-
-Parameters
-
+Creates a new user.
 
 |   Parameter   |  Description  |
 |---------------|---------------|
-| `<parameter>` |`<description>`|
+| username | the username |
+| password | the user's password |
+| email | the user's email |
+| location | (optional) the "stringified" location of the Molecular Playground installation |
+
+### Route:  `/<username>`
+
+#### Verb: `GET`
+
+Gets the user with username `<username>`.
+
+|   Parameter   |  Description  |
+|---------------|---------------|
+| N/A | N/A |
 
 #### Verb: `DELETE`
 
-Description of route + verb.
+***Authentication required***
 
-Parameters
-
+Deletes the user with username `<username>`.
 
 |   Parameter   |  Description  |
 |---------------|---------------|
-| `<parameter>` |`<description>`|
+| N/A | N/A |
 
+### Route:  `/validate`
 
-# ms-users
+#### Verb: `POST`
 
-## Get All Users
+Sets a user's `validated` property to `true`.
 
-HTTP Request: `GET /`
-
-
-
-Returns all users.
-Params: none.  
-Returns: array of `user` objects.  
-
-http
-
-Each object is an index in the array.
-All users in the database will be returned.
-
-This is an unauthenticated endpoint, meaning that **anyone** will receive responses.
-
-##### DEPRECATION WARNING
-
-**This enpoint is being deprecated.  It will be inexistent in all subsequent
-versions of this API.**  See the ms-users-auth microservice for alternatives.
-
-### #PUT
-Creates a new user.
-
-Returns: "User has been created!"
-
-Params (must be Body parameters in raw JSON format):
-
-    {
-      "username": "some_username",
-        "password": "some_password",
-        "email": "some_email",
-        "location": "some_location"
-    }
-
-Location is optional. This is an unauthenticated endpoint.
-
-### #POST
-Updates a user object.
-
-Params:
-
-      {
-        "username": "user_name",
-        "location": "some_location"
-      }
-
-Both of these parameters are optional..?
-
-This is an authenticated endpoint.
-
-Returns "Success" OR `some_probably_nondescriptive_error`
-## /:username
-Where `:username` is replaced by (you guessed it!) a username that exists in the database.
-
-### #GET
-
-Params: none.
-
-Returns: one user object.
-
-This is an unauthenticated endpoint.
-
-### #DELETE
-Deletes a single user.
-
-Params: none.
-
-Returns: "Deleted `user_name`" OR `some_error_message`.
-
-This is an unauthenticated endpoint.
-
-## /validate
-
-### #POST
-Sets a user's `validated` property to `true`
-
-Params (must be raw JSON in `request.body `):
-
-      {
-       "email": "email_addr_of_user",
-       "key": "long_string_sent_in_user_validation_email"
-      }
-
-Returns "Validated `email_address`"
-
-This is an unauthenticaed endpoint.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# ms-email Endpoints v0.0.0
-
-
-
-## /validate
-
-### #PUT
-Sends an account validation email to a (new) user.
-
-Params (must be raw JSON in request.Body):
-
-       {
-        "email": "email_of_user_to_validate",
-        "link": "full_url_with_validation_key_to_validate_user"
-        }
-
-Returns: "Message sent: `mailer_success_response_msg`" OR `descriptive_error_msg`.
-
-This is an unauthenticated endpoint.
-
+|   Parameter   |  Description  |
+|---------------|---------------|
+| email | the user's email |
+| key | the validation string sent to the user via email |
 
 # ms-email
 
-`ms-email` is a microservice that allows for email sending from other molecular-playground pages.
+A microservice for sending emails.
 
 ## Route Prefix: `/email`
 
@@ -252,57 +89,111 @@ This is an unauthenticated endpoint.
 
 #### Verb: `PUT`
 
-Sends an email to an address. Parameters form the body.
-All endpoints are unauthenticated, but are not going to be publicly exposed from the gateway.
-
-Parameters
-
+Sends an email to the specified address.
 
 |   Parameter   |  Description  |
 |---------------|---------------|
-| `email` | the recipient's email address |
-| `subject` | the subject of the email |
-| `html` | the message body, formatted as html |
-| `text` | the message body, formatted as plaintext as a fallback|
+| email | the recipient's email address |
+| subject | the subject of the email |
+| html | the message body, formatted as html |
+| text | the message body, formatted as plaintext as a fallback |
 
-Return:
-
-| Type | Example |
-|------|---------|
-|string|success message or fail message|
-
-
-#### Verb: `POST`
-
-Description of route + verb.
-
-Parameters
-
-
-|   Parameter   |  Description  |
-|---------------|---------------|
-| `<parameter>` |`<description>`|
+### Route: `/validate`
 
 #### Verb: `PUT`
 
-Description of route + verb.
-
-Parameters
-
+Sends a validation email to a newly registered user.
 
 |   Parameter   |  Description  |
 |---------------|---------------|
-| `<parameter>` |`<description>`|
+| email | the user's email |
+| link | the full URL with validation key |
 
-#### Verb: `DELETE`
+# ms-schedule
 
-Description of route + verb.
+A microservice for managing schedules and playlists.
 
-Parameters
+## Route Prefix: `/schedule`
 
+### Route:  `/<username>`
+
+#### Verb: `GET`
+
+Gets the single schedule and the playlists for said schedule for the user with username `<username>`.
 
 |   Parameter   |  Description  |
 |---------------|---------------|
-| `<parameter>` |`<description>`|
+| N/A | N/A |
 
+### Route: `/`
 
+#### Verb: `GET`
+
+***Authentication required***
+
+Gets the single schedule for the authenticated user and all of the user's playlists.
+
+|   Parameter   |  Description  |
+|---------------|---------------|
+| N/A | N/A |
+
+#### Verb: `POST`
+
+***Authentication required***
+
+Updates the single schedule for the authenticated user.
+
+|   Parameter   |  Description  |
+|---------------|---------------|
+| schedule | the JSON representation of the modified schedule |
+
+## Route Prefix: `/playlist`
+
+### Route:  `/`
+
+#### Verb: `GET`
+
+***Authentication required***
+
+Gets all the playlists for the authenticated user.
+
+|   Parameter   |  Description  |
+|---------------|---------------|
+| N/A | N/A |
+
+#### Verb: `POST`
+
+***Authentication required***
+
+Updates a specified playlist for the authenticatd user.
+
+|   Parameter   |  Description  |
+|---------------|---------------|
+| pid | the ID of the playlist |
+| playlist | the JSON representation of the modified playlist |
+
+### Route:  `/`
+
+#### Verb: `PUT`
+
+***Authentication required***
+
+Creates a new playlist for the authenticatd user.
+
+|   Parameter   |  Description  |
+|---------------|---------------|
+| name | the name of the new playlist |
+| playlist | the JSON representation of the new playlist |
+
+### Route:  `/rename`
+
+#### Verb: `POST`
+
+***Authentication required***
+
+Renames a specific playlist for the authenticatd user.
+
+|   Parameter   |  Description  |
+|---------------|---------------|
+| pid | the ID of the playlist |
+| name | the new name of the playlist |

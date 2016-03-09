@@ -16,7 +16,7 @@ A microservice for accessing and modifying users.
 
 ## Route Prefix: `/user`
 
-### Route:  `/`
+## Route:  `/`
 
 #### Verb: `GET`
 
@@ -48,7 +48,7 @@ Creates a new user.
 | email | the user's email |
 | location | (optional) the "stringified" location of the Molecular Playground installation |
 
-### Route:  `/<username>`
+## Route:  `/<username>`
 
 #### Verb: `GET`
 
@@ -68,7 +68,7 @@ Deletes the user with username `<username>`.
 |---------------|---------------|
 | N/A | N/A |
 
-### Route:  `/validate`
+## Route:  `/validate`
 
 #### Verb: `POST`
 
@@ -85,7 +85,7 @@ A microservice for sending emails.
 
 ## Route Prefix: `/email`
 
-### Route:  `/general`
+## Route:  `/general`
 
 #### Verb: `PUT`
 
@@ -98,7 +98,7 @@ Sends an email to the specified address.
 | html | the message body, formatted as html |
 | text | the message body, formatted as plaintext as a fallback |
 
-### Route: `/validate`
+## Route: `/validate`
 
 #### Verb: `PUT`
 
@@ -115,7 +115,7 @@ A microservice for managing schedules and playlists.
 
 ## Route Prefix: `/schedule`
 
-### Route:  `/<username>`
+## Route:  `/<username>`
 
 #### Verb: `GET`
 
@@ -125,7 +125,7 @@ Gets the single schedule and the playlists for said schedule for the user with u
 |---------------|---------------|
 | N/A | N/A |
 
-### Route: `/`
+## Route: `/`
 
 #### Verb: `GET`
 
@@ -149,7 +149,7 @@ Updates the single schedule for the authenticated user.
 
 ## Route Prefix: `/playlist`
 
-### Route:  `/`
+## Route:  `/`
 
 #### Verb: `GET`
 
@@ -172,7 +172,7 @@ Updates a specified playlist for the authenticatd user.
 | pid | the ID of the playlist |
 | playlist | the JSON representation of the modified playlist |
 
-### Route:  `/`
+## Route:  `/`
 
 #### Verb: `PUT`
 
@@ -185,7 +185,7 @@ Creates a new playlist for the authenticatd user.
 | name | the name of the new playlist |
 | playlist | the JSON representation of the new playlist |
 
-### Route:  `/rename`
+## Route:  `/rename`
 
 #### Verb: `POST`
 

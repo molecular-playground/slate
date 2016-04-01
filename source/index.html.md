@@ -165,7 +165,7 @@ Gets all the playlists for the authenticated user.
 
 ***Authentication required***
 
-Updates a specified playlist for the authenticatd user.
+Updates a specified playlist for the authenticated user.
 
 |   Parameter   |  Description  |
 |---------------|---------------|
@@ -178,7 +178,7 @@ Updates a specified playlist for the authenticatd user.
 
 ***Authentication required***
 
-Creates a new playlist for the authenticatd user.
+Creates a new playlist for the authenticated user.
 
 |   Parameter   |  Description  |
 |---------------|---------------|
@@ -191,9 +191,30 @@ Creates a new playlist for the authenticatd user.
 
 ***Authentication required***
 
-Renames a specific playlist for the authenticatd user.
+Renames a specific playlist for the authenticated user.
 
 |   Parameter   |  Description  |
 |---------------|---------------|
 | pid | the ID of the playlist |
 | name | the new name of the playlist |
+
+
+# ms-molecules
+
+A microservice for retrieving the full list of Molecular Playground molecules.
+
+## Route Prefix: `/molecules`
+
+## Route:  `/`
+
+#### Verb: `GET`
+
+Returns all molecule details contained in the database.
+
+|   Parameter   |  Description  |
+|---------------|---------------|
+| n/a | n/a |
+
+|  Example Return Value   |  Description  |
+|---------------|---------------|
+| [{"name": "water", "link": "http://mshosting:3000/h20.pb"}] | An array of JSON objects containing the NAME and LINK properties. |

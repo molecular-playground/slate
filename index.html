@@ -398,7 +398,7 @@
 
 <p><strong><em>Authentication required</em></strong></p>
 
-<p>Updates a specified playlist for the authenticatd user.</p>
+<p>Updates a specified playlist for the authenticated user.</p>
 
 <table><thead>
 <tr>
@@ -422,7 +422,7 @@
 
 <p><strong><em>Authentication required</em></strong></p>
 
-<p>Creates a new playlist for the authenticatd user.</p>
+<p>Creates a new playlist for the authenticated user.</p>
 
 <table><thead>
 <tr>
@@ -446,7 +446,7 @@
 
 <p><strong><em>Authentication required</em></strong></p>
 
-<p>Renames a specific playlist for the authenticatd user.</p>
+<p>Renames a specific playlist for the authenticated user.</p>
 
 <table><thead>
 <tr>
@@ -461,6 +461,42 @@
 <tr>
 <td>name</td>
 <td>the new name of the playlist</td>
+</tr>
+</tbody></table>
+
+<h1 id="ms-molecules">ms-molecules</h1>
+
+<p>A microservice for retrieving the full list of Molecular Playground molecules.</p>
+
+<h2 id="route-prefix-molecules">Route Prefix: <code class="prettyprint">/molecules</code></h2>
+
+<h2 id="route">Route:  <code class="prettyprint">/</code></h2>
+
+<h4 id="verb-get">Verb: <code class="prettyprint">GET</code></h4>
+
+<p>Returns all molecule details contained in the database.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Example Return Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>[{&ldquo;name&rdquo;: &ldquo;water&rdquo;, &ldquo;link&rdquo;: &ldquo;http://mshosting:3000/h20.pb&rdquo;}]</td>
+<td>An array of JSON objects containing the NAME and LINK properties.</td>
 </tr>
 </tbody></table>
 

@@ -20,18 +20,20 @@ Route Prefix: `/user`
 
 #### Verb: `GET`
 
+
+```json
+  "Example return value": ["aaron", "alec", "tim", "ethan"],
+  "Description":
+    "An array of strings combining to form every username in the database."
+```
+
+
 Get an array of all usernames (NOT full user objects).
 
 |   Parameter   |  Description  |
 |---------------|---------------|
 | N/A | N/A |
 
-
-    Example Return Value:
-      ['aaron', 'alec', 'tim', 'ethan']
-
-    Description:
-      An array of strings combining to form every username in the database.
 
 #### Verb: `PUT`
 
@@ -153,7 +155,7 @@ Sends a validation email to a newly registered user.
       "Message sent!"
     Description:
       A confirmation string.
-  
+
 # ms-schedule
 
 A microservice for managing schedules and playlists.

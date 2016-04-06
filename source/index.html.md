@@ -37,15 +37,6 @@ Get an array of all usernames (NOT full user objects).
 
 #### Verb: `PUT`
 
-Creates a new user.
-
-|   Parameter   |  Description  |
-|---------------|---------------|
-| username | the username |
-| password | the user's password |
-| email | the user's email |
-| location | (optional) the "stringified" location of the Molecular Playground installation |
-
 ```javascript
 Example Return Value
 
@@ -61,6 +52,17 @@ Description:
 
 A JSON object containing the email of the newly created user and their full validation URL
 ```
+
+
+Creates a new user.
+
+|   Parameter   |  Description  |
+|---------------|---------------|
+| username | the username |
+| password | the user's password |
+| email | the user's email |
+| location | (optional) the "stringified" location of the Molecular Playground installation |
+
 
 ## Route:  `/<username>`
 

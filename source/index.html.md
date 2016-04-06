@@ -74,20 +74,21 @@ Gets the user with username `<username>`.
 |---------------|---------------|
 | N/A | N/A |
 
-    Example Return Value
-      {
-        "email": "moo@gmail.com",
-        "username": "moosausage",
-        "uid": "1",
-        password: "saltedPassword",
-        date-created: "20160302Z1400132",
-        "validation_url": "http://ms-email:3000/validate?email=moo@gmail.com&key=98CAD8C65ADBF2",
-        "validated": "false",
-        location: null
-        }
-      Description:
-      The full user object whose username matches the one given in the route
-
+```shell
+Example Return Value
+  {
+    "email": "moo@gmail.com",
+    "username": "moosausage",
+    "uid": "1",
+    password: "saltedPassword",
+    date-created: "20160302Z1400132",
+    "validation_url": "http://ms-email:3000/validate?email=moo@gmail.com&key=98CAD8C65ADBF2",
+    "validated": "false",
+    location: null
+    }
+  Description:
+  The full user object whose username matches the one given in the route
+```
 #### Verb: `DELETE`
 
 ***Authentication required***

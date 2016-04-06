@@ -26,21 +26,12 @@ Get an array of all usernames (NOT full user objects).
 |---------------|---------------|
 | N/A | N/A |
 
-|  Example Return Value   |  Description  |
-|---------------|---------------|
-| ['aaron', 'alec', 'tim', 'ethan'] | An array of strings combining to form every username in the database. |
 
+    Example Return Value:
+      ['aaron', 'alec', 'tim', 'ethan']
 
-#### Verb: `POST`
-
-***Authentication required***
-
-Updates a user object.
-
-|   Parameter   |  Description  |
-|---------------|---------------|
-| username | the username |
-| location | (optional) the "stringified" location of the Molecular Playground installation |
+    Description:
+      An array of strings combining to form every username in the database.
 
 #### Verb: `PUT`
 
@@ -53,9 +44,13 @@ Creates a new user.
 | email | the user's email |
 | location | (optional) the "stringified" location of the Molecular Playground installation |
 
-|  Example Return Value   |  Description  |
-|---------------|---------------|
-| {"email": "moo@gmail.com", "link": "http://ms-email:3000/validate?email=moo@gmail.com&key=98CAD8C65ADBF2"} | A JSON object containing the email of the newly created user and their full validation URL |
+    Example Return Value
+      {
+        "email": "moo@gmail.com",
+        "link": "http://ms-email:3000/validate?email=moo@gmail.com&key=98CAD8C65ADBF2"
+      }
+      Description:
+        A JSON object containing the email of the newly created user and their full validation URL
 
 ## Route:  `/<username>`
 
@@ -67,9 +62,19 @@ Gets the user with username `<username>`.
 |---------------|---------------|
 | N/A | N/A |
 
-|  Example Return Value   |  Description  |
-|---------------|---------------|
-| {"email": "moo@gmail.com", "username": "moosausage", "uid": "1", password: "saltedPassword", date-created: "20160302Z1400132" "validation_url": "http://ms-email:3000/validate?email=moo@gmail.com&key=98CAD8C65ADBF2", "validated": "false" location: null} | The full user object whose username matches the one given in the route |
+    Example Return Value
+      {
+        "email": "moo@gmail.com",
+        "username": "moosausage",
+        "uid": "1",
+        password: "saltedPassword",
+        date-created: "20160302Z1400132",
+        "validation_url": "http://ms-email:3000/validate?email=moo@gmail.com&key=98CAD8C65ADBF2",
+        "validated": "false",
+        location: null
+        }
+      Description:
+      The full user object whose username matches the one given in the route
 
 #### Verb: `DELETE`
 
@@ -81,6 +86,14 @@ Deletes the user with username `<username>`.
 |---------------|---------------|
 | N/A | N/A |
 
+    Example return value:
+      {
+        success: true,
+        message: "Deleted moosausage"
+      }
+    Description:
+      JSON object with success or fail and a cute string message
+
 ## Route:  `/validate`
 
 #### Verb: `POST`
@@ -91,16 +104,21 @@ Sets a user's `validated` property to `true`.
 |---------------|---------------|
 | email | the user's email |
 | key | the validation string sent to the user via email |
-|  Example Return Value   |  Description  |
-|---------------|---------------|
-| {"success": "true", "message": "Validated moo@gmail.com"} | A JSON object containing the a message that says a user's email has been validated |
+
+    Example return value:
+    {
+      "success": "true",
+      "message": "Validated moo@gmail.com"
+    }
+    Description:
+      A JSON object containing the a message that says a user's email has been validated
 
 
 # ms-email
 
 A microservice for sending emails.
 
-## Route Prefix: `/email`
+Route Prefix: `/email`
 
 ## Route:  `/general`
 
@@ -115,6 +133,11 @@ Sends an email to the specified address.
 | html | the message body, formatted as html |
 | text | the message body, formatted as plaintext as a fallback |
 
+    Example return value:
+      "Message sent!"
+    Description:
+      A confirmation string.
+
 ## Route: `/validate`
 
 #### Verb: `PUT`
@@ -126,6 +149,11 @@ Sends a validation email to a newly registered user.
 | email | the user's email |
 | link | the full URL with validation key |
 
+    Example return value:
+      "Message sent!"
+    Description:
+      A confirmation string.
+  
 # ms-schedule
 
 A microservice for managing schedules and playlists.

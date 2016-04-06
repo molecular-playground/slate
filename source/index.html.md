@@ -182,6 +182,30 @@ Route Prefix: `/schedule`
 
 #### Verb: `GET`
 
+```shell
+Example return value for #GET:
+{
+  "schedule": [
+      {"pid":1,"startTime":"2:00pm"},
+      {"pid":2,"startTime":"4:00pm"},
+      {"pid":3,"startTime":"6:00pm"},
+      {"pid":1,"startTime":"6:00pm"}
+      ],
+  "playlists": {
+      "1": [1, 3, 3, 2],
+      "2": [2, 1, 3],
+      "3": [3, 2, 1]
+  },
+  "molecules": {
+      "1": "link 1",
+      "2": "link 2",
+      "3": "link 3"
+  }
+}
+
+Description: JSON object of schedule data for a user
+```
+
 Gets the single schedule and the playlists for said schedule for the user with username `<username>`.
 
 |   Parameter   |  Description  |
@@ -194,6 +218,21 @@ Gets the single schedule and the playlists for said schedule for the user with u
 
 ***Authentication required***
 
+```shell
+Example return value for #GET:
+{
+  "schedule": [
+      {"pid":1,"startTime":"2:00pm"},
+      {"pid":2,"startTime":"4:00pm"},
+      {"pid":3,"startTime":"6:00pm"},
+      {"pid":1,"startTime":"6:00pm"}
+  ]
+}
+
+Description:
+Single element json object containing an array of json objects
+```
+
 Gets the single schedule for the authenticated user and all of the user's playlists.
 
 |   Parameter   |  Description  |
@@ -203,6 +242,14 @@ Gets the single schedule for the authenticated user and all of the user's playli
 #### Verb: `POST`
 
 ***Authentication required***
+
+```shell
+Example return value for #POST
+{
+  success: true,
+  message: 'Updated schedule for user ' + userid
+}
+```
 
 Updates the single schedule for the authenticated user.
 
@@ -218,6 +265,29 @@ Updates the single schedule for the authenticated user.
 
 ***Authentication required***
 
+```shell
+Example return value for #GET
+{
+  "playlists": [
+      {
+          "pid":1,
+          "name":"awesome playlist 1",
+          "playlist":[1,2,3]
+      },
+      {
+          "pid":2,
+          "name":"awesome playlist 2",
+          "playlist":[4,1,5]
+      },
+      {
+          "pid":3,
+          "name":"awesome playlist 3",
+          "playlist":[3,2,2]
+      }
+  ]
+}
+```
+
 Gets all the playlists for the authenticated user.
 
 |   Parameter   |  Description  |
@@ -228,6 +298,14 @@ Gets all the playlists for the authenticated user.
 
 ***Authentication required***
 
+```shell
+Example return value for #POST
+{
+      success: true,
+      message: 'Updated playlist ' + data.pid
+  }
+```
+
 Updates a specified playlist for the authenticated user.
 
 |   Parameter   |  Description  |
@@ -235,11 +313,18 @@ Updates a specified playlist for the authenticated user.
 | pid | the ID of the playlist |
 | playlist | the JSON representation of the modified playlist |
 
-## Route:  `/`
-
 #### Verb: `PUT`
 
 ***Authentication required***
+
+```shell
+Example return value for #PUT
+{
+        success: true,
+        message: "Added playlist",
+        pid: playlistID
+    }
+```
 
 Creates a new playlist for the authenticated user.
 
@@ -253,6 +338,13 @@ Creates a new playlist for the authenticated user.
 #### Verb: `POST`
 
 ***Authentication required***
+```shell
+Example return value for #POST
+{
+    success: true,
+    message: 'Playlist ' + data.pid + ' renamed to ' + data.name
+}
+```
 
 Renames a specific playlist for the authenticated user.
 

@@ -37,14 +37,14 @@ Get an array of all usernames (NOT full user objects).
 
 #### Verb: `PUT`
 
-```javascript
+```shell
 Example Return Value
 
 {
 
-"email": "moo@gmail.com",
+"email" : "moo@gmail.com",
 
-"link": "http://ms-email:3000/validate?email=moo@gmail.com&key=98CAD8C65ADBF2"
+"link" : "http://ms-email:3000/validate?email=moo@gmail.com&key=98CAD8C65ADBF2"
 
 }
 

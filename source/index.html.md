@@ -21,10 +21,13 @@ Route Prefix: `/user`
 #### Verb: `GET`
 
 
-```json
-  "Example return value": ["aaron", "alec", "tim", "ethan"],
-  "Description":
-    "An array of strings combining to form every username in the database."
+```shell
+Example return value
+
+["aaron", "alec", "tim", "ethan"],
+
+Description:
+"An array of strings combining to form every username in the database."
 ```
 
 
@@ -38,7 +41,7 @@ Get an array of all usernames (NOT full user objects).
 #### Verb: `PUT`
 
 ```shell
-Example Return Value
+Example Return Value for #PUT
 
 {
 
@@ -68,7 +71,7 @@ Creates a new user.
 
 #### Verb: `GET`
 ```shell
-Example Return Value
+Example Return Value for #GET
   {
     "email": "moo@gmail.com",
     "username": "moosausage",

@@ -130,6 +130,14 @@
 
 <h4 id="verb-get">Verb: <code class="prettyprint">GET</code></h4>
 
+<blockquote>
+<p>Example Return Value:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>  ['aaron', 'alec', 'tim', 'ethan']
+  Description:
+    An array of strings combining to form every username in the database.
+</code></pre>
+
 <p>Get an array of all usernames (NOT full user objects).</p>
 
 <table><thead>
@@ -143,243 +151,388 @@
 <td>N/A</td>
 </tr>
 </tbody></table>
-<pre class="highlight json"><code><span class="err">Example</span><span class="w"> </span><span class="err">Return</span><span class="w"> </span><span class="err">Value:</span><span class="w">
-  </span><span class="p">[</span><span class="err">'aaron'</span><span class="p">,</span><span class="w"> </span><span class="err">'alec'</span><span class="p">,</span><span class="w"> </span><span class="err">'tim'</span><span class="p">,</span><span class="w"> </span><span class="err">'ethan'</span><span class="p">]</span><span class="w">
 
-</span><span class="err">Description:</span><span class="w">
-  </span><span class="err">An</span><span class="w"> </span><span class="err">array</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">strings</span><span class="w"> </span><span class="err">combining</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">form</span><span class="w"> </span><span class="err">every</span><span class="w"> </span><span class="err">username</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">database.```</span><span class="w">
-
-</span><span class="err">####</span><span class="w"> </span><span class="err">Verb:</span><span class="w"> </span><span class="err">`PUT`</span><span class="w">
-
-</span><span class="err">Creates</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">user.</span><span class="w">
-
-</span><span class="err">|</span><span class="w">   </span><span class="err">Parameter</span><span class="w">   </span><span class="err">|</span><span class="w">  </span><span class="err">Description</span><span class="w">  </span><span class="err">|</span><span class="w">
-</span><span class="err">|---------------|---------------|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">username</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">username</span><span class="w"> </span><span class="err">|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">password</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">user's</span><span class="w"> </span><span class="err">password</span><span class="w"> </span><span class="err">|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">email</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">user's</span><span class="w"> </span><span class="err">email</span><span class="w"> </span><span class="err">|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">location</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">(optional)</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="s2">"stringified"</span><span class="w"> </span><span class="err">location</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">Molecular</span><span class="w"> </span><span class="err">Playground</span><span class="w"> </span><span class="err">installation</span><span class="w"> </span><span class="err">|</span><span class="w">
-
-    </span><span class="err">Example</span><span class="w"> </span><span class="err">Return</span><span class="w"> </span><span class="err">Value</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"moo@gmail.com"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://ms-email:3000/validate?email=moo@gmail.com&amp;key=98CAD8C65ADBF2"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-      </span><span class="err">Description:</span><span class="w">
-        </span><span class="err">A</span><span class="w"> </span><span class="err">JSON</span><span class="w"> </span><span class="err">object</span><span class="w"> </span><span class="err">containing</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">email</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">newly</span><span class="w"> </span><span class="err">created</span><span class="w"> </span><span class="err">user</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">their</span><span class="w"> </span><span class="err">full</span><span class="w"> </span><span class="err">validation</span><span class="w"> </span><span class="err">URL</span><span class="w">
-
-</span><span class="err">##</span><span class="w"> </span><span class="err">Route:</span><span class="w">  </span><span class="err">`/&lt;username&gt;`</span><span class="w">
-
-</span><span class="err">####</span><span class="w"> </span><span class="err">Verb:</span><span class="w"> </span><span class="err">`GET`</span><span class="w">
-
-</span><span class="err">Gets</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">user</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">username</span><span class="w"> </span><span class="err">`&lt;username&gt;`.</span><span class="w">
-
-</span><span class="err">|</span><span class="w">   </span><span class="err">Parameter</span><span class="w">   </span><span class="err">|</span><span class="w">  </span><span class="err">Description</span><span class="w">  </span><span class="err">|</span><span class="w">
-</span><span class="err">|---------------|---------------|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">N/A</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">N/A</span><span class="w"> </span><span class="err">|</span><span class="w">
-
-    </span><span class="err">Example</span><span class="w"> </span><span class="err">Return</span><span class="w"> </span><span class="err">Value</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"moo@gmail.com"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"moosausage"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-        </span><span class="err">password</span><span class="p">:</span><span class="w"> </span><span class="s2">"saltedPassword"</span><span class="p">,</span><span class="w">
-        </span><span class="err">date-created</span><span class="p">:</span><span class="w"> </span><span class="s2">"20160302Z1400132"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"validation_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://ms-email:3000/validate?email=moo@gmail.com&amp;key=98CAD8C65ADBF2"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"validated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
-        </span><span class="err">location</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="err">Description:</span><span class="w">
-      </span><span class="err">The</span><span class="w"> </span><span class="err">full</span><span class="w"> </span><span class="err">user</span><span class="w"> </span><span class="err">object</span><span class="w"> </span><span class="err">whose</span><span class="w"> </span><span class="err">username</span><span class="w"> </span><span class="err">matches</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">one</span><span class="w"> </span><span class="err">given</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">route</span><span class="w">
-
-</span><span class="err">####</span><span class="w"> </span><span class="err">Verb:</span><span class="w"> </span><span class="err">`DELETE`</span><span class="w">
-
-</span><span class="err">***Authentication</span><span class="w"> </span><span class="err">required***</span><span class="w">
-
-</span><span class="err">Deletes</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">user</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">username</span><span class="w"> </span><span class="err">`&lt;username&gt;`.</span><span class="w">
-
-</span><span class="err">|</span><span class="w">   </span><span class="err">Parameter</span><span class="w">   </span><span class="err">|</span><span class="w">  </span><span class="err">Description</span><span class="w">  </span><span class="err">|</span><span class="w">
-</span><span class="err">|---------------|---------------|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">N/A</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">N/A</span><span class="w"> </span><span class="err">|</span><span class="w">
-
-    </span><span class="err">Example</span><span class="w"> </span><span class="err">return</span><span class="w"> </span><span class="err">value:</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="err">success:</span><span class="w"> </span><span class="err">true,</span><span class="w">
-        </span><span class="err">message:</span><span class="w"> </span><span class="nt">"Deleted moosausage"</span><span class="w">
-      </span><span class="err">}</span><span class="w">
-    </span><span class="err">Description:</span><span class="w">
-      </span><span class="err">JSON</span><span class="w"> </span><span class="err">object</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">success</span><span class="w"> </span><span class="err">or</span><span class="w"> </span><span class="err">fail</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">cute</span><span class="w"> </span><span class="err">string</span><span class="w"> </span><span class="err">message</span><span class="w">
-
-</span><span class="err">##</span><span class="w"> </span><span class="err">Route:</span><span class="w">  </span><span class="err">`/validate`</span><span class="w">
-
-</span><span class="err">####</span><span class="w"> </span><span class="err">Verb:</span><span class="w"> </span><span class="err">`POST`</span><span class="w">
-
-</span><span class="err">Sets</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">user's</span><span class="w"> </span><span class="err">`validated`</span><span class="w"> </span><span class="err">property</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">`</span><span class="kc">true</span><span class="err">`.</span><span class="w">
-
-</span><span class="err">|</span><span class="w">   </span><span class="err">Parameter</span><span class="w">   </span><span class="err">|</span><span class="w">  </span><span class="err">Description</span><span class="w">  </span><span class="err">|</span><span class="w">
-</span><span class="err">|---------------|---------------|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">email</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">user's</span><span class="w"> </span><span class="err">email</span><span class="w"> </span><span class="err">|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">key</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">validation</span><span class="w"> </span><span class="err">string</span><span class="w"> </span><span class="err">sent</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">user</span><span class="w"> </span><span class="err">via</span><span class="w"> </span><span class="err">email</span><span class="w"> </span><span class="err">|</span><span class="w">
-
-    </span><span class="err">Example</span><span class="w"> </span><span class="err">return</span><span class="w"> </span><span class="err">value:</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Validated moo@gmail.com"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-    </span><span class="err">Description:</span><span class="w">
-      </span><span class="err">A</span><span class="w"> </span><span class="err">JSON</span><span class="w"> </span><span class="err">object</span><span class="w"> </span><span class="err">containing</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">message</span><span class="w"> </span><span class="err">that</span><span class="w"> </span><span class="err">says</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">user's</span><span class="w"> </span><span class="err">email</span><span class="w"> </span><span class="err">has</span><span class="w"> </span><span class="err">been</span><span class="w"> </span><span class="err">validated</span><span class="w">
-
-
-</span><span class="err">#</span><span class="w"> </span><span class="err">ms-email</span><span class="w">
-
-</span><span class="err">A</span><span class="w"> </span><span class="err">microservice</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">sending</span><span class="w"> </span><span class="err">emails.</span><span class="w">
-
-</span><span class="err">Route</span><span class="w"> </span><span class="err">Prefix:</span><span class="w"> </span><span class="err">`/email`</span><span class="w">
-
-</span><span class="err">##</span><span class="w"> </span><span class="err">Route:</span><span class="w">  </span><span class="err">`/general`</span><span class="w">
-
-</span><span class="err">####</span><span class="w"> </span><span class="err">Verb:</span><span class="w"> </span><span class="err">`PUT`</span><span class="w">
-
-</span><span class="err">Sends</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">email</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">specified</span><span class="w"> </span><span class="err">address.</span><span class="w">
-
-</span><span class="err">|</span><span class="w">   </span><span class="err">Parameter</span><span class="w">   </span><span class="err">|</span><span class="w">  </span><span class="err">Description</span><span class="w">  </span><span class="err">|</span><span class="w">
-</span><span class="err">|---------------|---------------|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">email</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">recipient's</span><span class="w"> </span><span class="err">email</span><span class="w"> </span><span class="err">address</span><span class="w"> </span><span class="err">|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">subject</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">subject</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">email</span><span class="w"> </span><span class="err">|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">html</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">message</span><span class="w"> </span><span class="err">body,</span><span class="w"> </span><span class="err">formatted</span><span class="w"> </span><span class="err">as</span><span class="w"> </span><span class="err">html</span><span class="w"> </span><span class="err">|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">text</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">message</span><span class="w"> </span><span class="err">body,</span><span class="w"> </span><span class="err">formatted</span><span class="w"> </span><span class="err">as</span><span class="w"> </span><span class="err">plaintext</span><span class="w"> </span><span class="err">as</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">fallback</span><span class="w"> </span><span class="err">|</span><span class="w">
-
-    </span><span class="err">Example</span><span class="w"> </span><span class="err">return</span><span class="w"> </span><span class="err">value:</span><span class="w">
-      </span><span class="s2">"Message sent!"</span><span class="w">
-    </span><span class="err">Description:</span><span class="w">
-      </span><span class="err">A</span><span class="w"> </span><span class="err">confirmation</span><span class="w"> </span><span class="err">string.</span><span class="w">
-
-</span><span class="err">##</span><span class="w"> </span><span class="err">Route:</span><span class="w"> </span><span class="err">`/validate`</span><span class="w">
-
-</span><span class="err">####</span><span class="w"> </span><span class="err">Verb:</span><span class="w"> </span><span class="err">`PUT`</span><span class="w">
-
-</span><span class="err">Sends</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">validation</span><span class="w"> </span><span class="err">email</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">newly</span><span class="w"> </span><span class="err">registered</span><span class="w"> </span><span class="err">user.</span><span class="w">
-
-</span><span class="err">|</span><span class="w">   </span><span class="err">Parameter</span><span class="w">   </span><span class="err">|</span><span class="w">  </span><span class="err">Description</span><span class="w">  </span><span class="err">|</span><span class="w">
-</span><span class="err">|---------------|---------------|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">email</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">user's</span><span class="w"> </span><span class="err">email</span><span class="w"> </span><span class="err">|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">link</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">full</span><span class="w"> </span><span class="err">URL</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">validation</span><span class="w"> </span><span class="err">key</span><span class="w"> </span><span class="err">|</span><span class="w">
-
-    </span><span class="err">Example</span><span class="w"> </span><span class="err">return</span><span class="w"> </span><span class="err">value:</span><span class="w">
-      </span><span class="s2">"Message sent!"</span><span class="w">
-    </span><span class="err">Description:</span><span class="w">
-      </span><span class="err">A</span><span class="w"> </span><span class="err">confirmation</span><span class="w"> </span><span class="err">string.</span><span class="w">
-
-</span><span class="err">#</span><span class="w"> </span><span class="err">ms-schedule</span><span class="w">
-
-</span><span class="err">A</span><span class="w"> </span><span class="err">microservice</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">managing</span><span class="w"> </span><span class="err">schedules</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">playlists.</span><span class="w">
-
-</span><span class="err">##</span><span class="w"> </span><span class="err">Route</span><span class="w"> </span><span class="err">Prefix:</span><span class="w"> </span><span class="err">`/schedule`</span><span class="w">
-
-</span><span class="err">##</span><span class="w"> </span><span class="err">Route:</span><span class="w">  </span><span class="err">`/&lt;username&gt;`</span><span class="w">
-
-</span><span class="err">####</span><span class="w"> </span><span class="err">Verb:</span><span class="w"> </span><span class="err">`GET`</span><span class="w">
-
-</span><span class="err">Gets</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">single</span><span class="w"> </span><span class="err">schedule</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">playlists</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">said</span><span class="w"> </span><span class="err">schedule</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">user</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">username</span><span class="w"> </span><span class="err">`&lt;username&gt;`.</span><span class="w">
-
-</span><span class="err">|</span><span class="w">   </span><span class="err">Parameter</span><span class="w">   </span><span class="err">|</span><span class="w">  </span><span class="err">Description</span><span class="w">  </span><span class="err">|</span><span class="w">
-</span><span class="err">|---------------|---------------|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">N/A</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">N/A</span><span class="w"> </span><span class="err">|</span><span class="w">
-
-</span><span class="err">##</span><span class="w"> </span><span class="err">Route:</span><span class="w"> </span><span class="err">`/`</span><span class="w">
-
-</span><span class="err">####</span><span class="w"> </span><span class="err">Verb:</span><span class="w"> </span><span class="err">`GET`</span><span class="w">
-
-</span><span class="err">***Authentication</span><span class="w"> </span><span class="err">required***</span><span class="w">
-
-</span><span class="err">Gets</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">single</span><span class="w"> </span><span class="err">schedule</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">authenticated</span><span class="w"> </span><span class="err">user</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">user's</span><span class="w"> </span><span class="err">playlists.</span><span class="w">
-
-</span><span class="err">|</span><span class="w">   </span><span class="err">Parameter</span><span class="w">   </span><span class="err">|</span><span class="w">  </span><span class="err">Description</span><span class="w">  </span><span class="err">|</span><span class="w">
-</span><span class="err">|---------------|---------------|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">N/A</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">N/A</span><span class="w"> </span><span class="err">|</span><span class="w">
-
-</span><span class="err">####</span><span class="w"> </span><span class="err">Verb:</span><span class="w"> </span><span class="err">`POST`</span><span class="w">
-
-</span><span class="err">***Authentication</span><span class="w"> </span><span class="err">required***</span><span class="w">
-
-</span><span class="err">Updates</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">single</span><span class="w"> </span><span class="err">schedule</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">authenticated</span><span class="w"> </span><span class="err">user.</span><span class="w">
-
-</span><span class="err">|</span><span class="w">   </span><span class="err">Parameter</span><span class="w">   </span><span class="err">|</span><span class="w">  </span><span class="err">Description</span><span class="w">  </span><span class="err">|</span><span class="w">
-</span><span class="err">|---------------|---------------|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">schedule</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">JSON</span><span class="w"> </span><span class="err">representation</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">modified</span><span class="w"> </span><span class="err">schedule</span><span class="w"> </span><span class="err">|</span><span class="w">
-
-</span><span class="err">##</span><span class="w"> </span><span class="err">Route</span><span class="w"> </span><span class="err">Prefix:</span><span class="w"> </span><span class="err">`/playlist`</span><span class="w">
-
-</span><span class="err">##</span><span class="w"> </span><span class="err">Route:</span><span class="w">  </span><span class="err">`/`</span><span class="w">
-
-</span><span class="err">####</span><span class="w"> </span><span class="err">Verb:</span><span class="w"> </span><span class="err">`GET`</span><span class="w">
-
-</span><span class="err">***Authentication</span><span class="w"> </span><span class="err">required***</span><span class="w">
-
-</span><span class="err">Gets</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">playlists</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">authenticated</span><span class="w"> </span><span class="err">user.</span><span class="w">
-
-</span><span class="err">|</span><span class="w">   </span><span class="err">Parameter</span><span class="w">   </span><span class="err">|</span><span class="w">  </span><span class="err">Description</span><span class="w">  </span><span class="err">|</span><span class="w">
-</span><span class="err">|---------------|---------------|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">N/A</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">N/A</span><span class="w"> </span><span class="err">|</span><span class="w">
-
-</span><span class="err">####</span><span class="w"> </span><span class="err">Verb:</span><span class="w"> </span><span class="err">`POST`</span><span class="w">
-
-</span><span class="err">***Authentication</span><span class="w"> </span><span class="err">required***</span><span class="w">
-
-</span><span class="err">Updates</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">specified</span><span class="w"> </span><span class="err">playlist</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">authenticated</span><span class="w"> </span><span class="err">user.</span><span class="w">
-
-</span><span class="err">|</span><span class="w">   </span><span class="err">Parameter</span><span class="w">   </span><span class="err">|</span><span class="w">  </span><span class="err">Description</span><span class="w">  </span><span class="err">|</span><span class="w">
-</span><span class="err">|---------------|---------------|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">pid</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">ID</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">playlist</span><span class="w"> </span><span class="err">|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">playlist</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">JSON</span><span class="w"> </span><span class="err">representation</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">modified</span><span class="w"> </span><span class="err">playlist</span><span class="w"> </span><span class="err">|</span><span class="w">
-
-</span><span class="err">##</span><span class="w"> </span><span class="err">Route:</span><span class="w">  </span><span class="err">`/`</span><span class="w">
-
-</span><span class="err">####</span><span class="w"> </span><span class="err">Verb:</span><span class="w"> </span><span class="err">`PUT`</span><span class="w">
-
-</span><span class="err">***Authentication</span><span class="w"> </span><span class="err">required***</span><span class="w">
-
-</span><span class="err">Creates</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">playlist</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">authenticated</span><span class="w"> </span><span class="err">user.</span><span class="w">
-
-</span><span class="err">|</span><span class="w">   </span><span class="err">Parameter</span><span class="w">   </span><span class="err">|</span><span class="w">  </span><span class="err">Description</span><span class="w">  </span><span class="err">|</span><span class="w">
-</span><span class="err">|---------------|---------------|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">name</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">name</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">playlist</span><span class="w"> </span><span class="err">|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">playlist</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">JSON</span><span class="w"> </span><span class="err">representation</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">playlist</span><span class="w"> </span><span class="err">|</span><span class="w">
-
-</span><span class="err">##</span><span class="w"> </span><span class="err">Route:</span><span class="w">  </span><span class="err">`/rename`</span><span class="w">
-
-</span><span class="err">####</span><span class="w"> </span><span class="err">Verb:</span><span class="w"> </span><span class="err">`POST`</span><span class="w">
-
-</span><span class="err">***Authentication</span><span class="w"> </span><span class="err">required***</span><span class="w">
-
-</span><span class="err">Renames</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">specific</span><span class="w"> </span><span class="err">playlist</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">authenticated</span><span class="w"> </span><span class="err">user.</span><span class="w">
-
-</span><span class="err">|</span><span class="w">   </span><span class="err">Parameter</span><span class="w">   </span><span class="err">|</span><span class="w">  </span><span class="err">Description</span><span class="w">  </span><span class="err">|</span><span class="w">
-</span><span class="err">|---------------|---------------|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">pid</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">ID</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">playlist</span><span class="w"> </span><span class="err">|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">name</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">name</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">playlist</span><span class="w"> </span><span class="err">|</span><span class="w">
-
-
-</span><span class="err">#</span><span class="w"> </span><span class="err">ms-molecules</span><span class="w">
-
-</span><span class="err">A</span><span class="w"> </span><span class="err">microservice</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">retrieving</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">full</span><span class="w"> </span><span class="err">list</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">Molecular</span><span class="w"> </span><span class="err">Playground</span><span class="w"> </span><span class="err">molecules.</span><span class="w">
-
-</span><span class="err">##</span><span class="w"> </span><span class="err">Route</span><span class="w"> </span><span class="err">Prefix:</span><span class="w"> </span><span class="err">`/molecules`</span><span class="w">
-
-</span><span class="err">##</span><span class="w"> </span><span class="err">Route:</span><span class="w">  </span><span class="err">`/`</span><span class="w">
-
-</span><span class="err">####</span><span class="w"> </span><span class="err">Verb:</span><span class="w"> </span><span class="err">`GET`</span><span class="w">
-
-</span><span class="err">Returns</span><span class="w"> </span><span class="err">all</span><span class="w"> </span><span class="err">molecule</span><span class="w"> </span><span class="err">details</span><span class="w"> </span><span class="err">contained</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">database.</span><span class="w">
-
-</span><span class="err">|</span><span class="w">   </span><span class="err">Parameter</span><span class="w">   </span><span class="err">|</span><span class="w">  </span><span class="err">Description</span><span class="w">  </span><span class="err">|</span><span class="w">
-</span><span class="err">|---------------|---------------|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="err">n/a</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">n/a</span><span class="w"> </span><span class="err">|</span><span class="w">
-
-</span><span class="err">|</span><span class="w">  </span><span class="err">Example</span><span class="w"> </span><span class="err">Return</span><span class="w"> </span><span class="err">Value</span><span class="w">   </span><span class="err">|</span><span class="w">  </span><span class="err">Description</span><span class="w">  </span><span class="err">|</span><span class="w">
-</span><span class="err">|---------------|---------------|</span><span class="w">
-</span><span class="err">|</span><span class="w"> </span><span class="p">[{</span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"water"</span><span class="p">,</span><span class="w"> </span><span class="nt">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://mshosting:3000/h20.pb"</span><span class="p">}]</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">An</span><span class="w"> </span><span class="err">array</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">JSON</span><span class="w"> </span><span class="err">objects</span><span class="w"> </span><span class="err">containing</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">NAME</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">LINK</span><span class="w"> </span><span class="err">properties.</span><span class="w"> </span><span class="err">|</span><span class="w">
-</span></code></pre>
+<h4 id="verb-put">Verb: <code class="prettyprint">PUT</code></h4>
+
+<p>Creates a new user.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>the username</td>
+</tr>
+<tr>
+<td>password</td>
+<td>the user&rsquo;s password</td>
+</tr>
+<tr>
+<td>email</td>
+<td>the user&rsquo;s email</td>
+</tr>
+<tr>
+<td>location</td>
+<td>(optional) the &ldquo;stringified&rdquo; location of the Molecular Playground installation</td>
+</tr>
+</tbody></table>
+
+<p>Example Return Value
+      {
+        &ldquo;email&rdquo;: &ldquo;moo@gmail.com&rdquo;,
+        &ldquo;link&rdquo;: &ldquo;http://ms-email:3000/validate?email=moo@gmail.com&amp;key=98CAD8C65ADBF2&rdquo;
+      }
+      Description:
+        A JSON object containing the email of the newly created user and their full validation URL</p>
+
+<h2 id="route-lt-username-gt">Route:  <code class="prettyprint">/&lt;username&gt;</code></h2>
+
+<h4 id="verb-get">Verb: <code class="prettyprint">GET</code></h4>
+
+<p>Gets the user with username <code class="prettyprint">&lt;username&gt;</code>.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody></table>
+
+<p>Example Return Value
+      {
+        &ldquo;email&rdquo;: &ldquo;moo@gmail.com&rdquo;,
+        &ldquo;username&rdquo;: &ldquo;moosausage&rdquo;,
+        &ldquo;uid&rdquo;: &ldquo;1&rdquo;,
+        password: &ldquo;saltedPassword&rdquo;,
+        date-created: &ldquo;20160302Z1400132&rdquo;,
+        &ldquo;validation_url&rdquo;: &ldquo;http://ms-email:3000/validate?email=moo@gmail.com&amp;key=98CAD8C65ADBF2&rdquo;,
+        &ldquo;validated&rdquo;: &ldquo;false&rdquo;,
+        location: null
+        }
+      Description:
+      The full user object whose username matches the one given in the route</p>
+
+<h4 id="verb-delete">Verb: <code class="prettyprint">DELETE</code></h4>
+
+<p><strong><em>Authentication required</em></strong></p>
+
+<p>Deletes the user with username <code class="prettyprint">&lt;username&gt;</code>.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody></table>
+
+<p>Example return value:
+      {
+        success: true,
+        message: &ldquo;Deleted moosausage&rdquo;
+      }
+    Description:
+      JSON object with success or fail and a cute string message</p>
+
+<h2 id="route-validate">Route:  <code class="prettyprint">/validate</code></h2>
+
+<h4 id="verb-post">Verb: <code class="prettyprint">POST</code></h4>
+
+<p>Sets a user&rsquo;s <code class="prettyprint">validated</code> property to <code class="prettyprint">true</code>.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>the user&rsquo;s email</td>
+</tr>
+<tr>
+<td>key</td>
+<td>the validation string sent to the user via email</td>
+</tr>
+</tbody></table>
+
+<p>Example return value:
+    {
+      &ldquo;success&rdquo;: &ldquo;true&rdquo;,
+      &ldquo;message&rdquo;: &ldquo;Validated moo@gmail.com&rdquo;
+    }
+    Description:
+      A JSON object containing the a message that says a user&rsquo;s email has been validated</p>
+
+<h1 id="ms-email">ms-email</h1>
+
+<p>A microservice for sending emails.</p>
+
+<p>Route Prefix: <code class="prettyprint">/email</code></p>
+
+<h2 id="route-general">Route:  <code class="prettyprint">/general</code></h2>
+
+<h4 id="verb-put">Verb: <code class="prettyprint">PUT</code></h4>
+
+<p>Sends an email to the specified address.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>the recipient&rsquo;s email address</td>
+</tr>
+<tr>
+<td>subject</td>
+<td>the subject of the email</td>
+</tr>
+<tr>
+<td>html</td>
+<td>the message body, formatted as html</td>
+</tr>
+<tr>
+<td>text</td>
+<td>the message body, formatted as plaintext as a fallback</td>
+</tr>
+</tbody></table>
+
+<p>Example return value:
+      &ldquo;Message sent!&rdquo;
+    Description:
+      A confirmation string.</p>
+
+<h2 id="route-validate">Route: <code class="prettyprint">/validate</code></h2>
+
+<h4 id="verb-put">Verb: <code class="prettyprint">PUT</code></h4>
+
+<p>Sends a validation email to a newly registered user.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>the user&rsquo;s email</td>
+</tr>
+<tr>
+<td>link</td>
+<td>the full URL with validation key</td>
+</tr>
+</tbody></table>
+
+<p>Example return value:
+      &ldquo;Message sent!&rdquo;
+    Description:
+      A confirmation string.</p>
+
+<h1 id="ms-schedule">ms-schedule</h1>
+
+<p>A microservice for managing schedules and playlists.</p>
+
+<h2 id="route-prefix-schedule">Route Prefix: <code class="prettyprint">/schedule</code></h2>
+
+<h2 id="route-lt-username-gt">Route:  <code class="prettyprint">/&lt;username&gt;</code></h2>
+
+<h4 id="verb-get">Verb: <code class="prettyprint">GET</code></h4>
+
+<p>Gets the single schedule and the playlists for said schedule for the user with username <code class="prettyprint">&lt;username&gt;</code>.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody></table>
+
+<h2 id="route">Route: <code class="prettyprint">/</code></h2>
+
+<h4 id="verb-get">Verb: <code class="prettyprint">GET</code></h4>
+
+<p><strong><em>Authentication required</em></strong></p>
+
+<p>Gets the single schedule for the authenticated user and all of the user&rsquo;s playlists.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody></table>
+
+<h4 id="verb-post">Verb: <code class="prettyprint">POST</code></h4>
+
+<p><strong><em>Authentication required</em></strong></p>
+
+<p>Updates the single schedule for the authenticated user.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>schedule</td>
+<td>the JSON representation of the modified schedule</td>
+</tr>
+</tbody></table>
+
+<h2 id="route-prefix-playlist">Route Prefix: <code class="prettyprint">/playlist</code></h2>
+
+<h2 id="route">Route:  <code class="prettyprint">/</code></h2>
+
+<h4 id="verb-get">Verb: <code class="prettyprint">GET</code></h4>
+
+<p><strong><em>Authentication required</em></strong></p>
+
+<p>Gets all the playlists for the authenticated user.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody></table>
+
+<h4 id="verb-post">Verb: <code class="prettyprint">POST</code></h4>
+
+<p><strong><em>Authentication required</em></strong></p>
+
+<p>Updates a specified playlist for the authenticated user.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pid</td>
+<td>the ID of the playlist</td>
+</tr>
+<tr>
+<td>playlist</td>
+<td>the JSON representation of the modified playlist</td>
+</tr>
+</tbody></table>
+
+<h2 id="route">Route:  <code class="prettyprint">/</code></h2>
+
+<h4 id="verb-put">Verb: <code class="prettyprint">PUT</code></h4>
+
+<p><strong><em>Authentication required</em></strong></p>
+
+<p>Creates a new playlist for the authenticated user.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>the name of the new playlist</td>
+</tr>
+<tr>
+<td>playlist</td>
+<td>the JSON representation of the new playlist</td>
+</tr>
+</tbody></table>
+
+<h2 id="route-rename">Route:  <code class="prettyprint">/rename</code></h2>
+
+<h4 id="verb-post">Verb: <code class="prettyprint">POST</code></h4>
+
+<p><strong><em>Authentication required</em></strong></p>
+
+<p>Renames a specific playlist for the authenticated user.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>pid</td>
+<td>the ID of the playlist</td>
+</tr>
+<tr>
+<td>name</td>
+<td>the new name of the playlist</td>
+</tr>
+</tbody></table>
+
+<h1 id="ms-molecules">ms-molecules</h1>
+
+<p>A microservice for retrieving the full list of Molecular Playground molecules.</p>
+
+<h2 id="route-prefix-molecules">Route Prefix: <code class="prettyprint">/molecules</code></h2>
+
+<h2 id="route">Route:  <code class="prettyprint">/</code></h2>
+
+<h4 id="verb-get">Verb: <code class="prettyprint">GET</code></h4>
+
+<p>Returns all molecule details contained in the database.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Example Return Value</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>[{&ldquo;name&rdquo;: &ldquo;water&rdquo;, &ldquo;link&rdquo;: &ldquo;http://mshosting:3000/h20.pb&rdquo;}]</td>
+<td>An array of JSON objects containing the NAME and LINK properties.</td>
+</tr>
+</tbody></table>
 
       </div>
       <div class="dark-box">

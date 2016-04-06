@@ -129,10 +129,13 @@
 <h2 id="route">Route:  <code class="prettyprint">/</code></h2>
 
 <h4 id="verb-get">Verb: <code class="prettyprint">GET</code></h4>
-<pre class="highlight json"><code><span class="w">  </span><span class="s2">"Example return value"</span><span class="err">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"aaron"</span><span class="p">,</span><span class="w"> </span><span class="s2">"alec"</span><span class="p">,</span><span class="w"> </span><span class="s2">"tim"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ethan"</span><span class="p">]</span><span class="err">,</span><span class="w">
-  </span><span class="s2">"Description"</span><span class="err">:</span><span class="w">
-    </span><span class="s2">"An array of strings combining to form every username in the database."</span><span class="w">
-</span></code></pre>
+<pre class="highlight shell"><code>Example <span class="k">return </span>value
+
+<span class="o">[</span><span class="s2">"aaron"</span>, <span class="s2">"alec"</span>, <span class="s2">"tim"</span>, <span class="s2">"ethan"</span><span class="o">]</span>,
+
+Description:
+<span class="s2">"An array of strings combining to form every username in the database."</span>
+</code></pre>
 
 <p>Get an array of all usernames (NOT full user objects).</p>
 
@@ -149,7 +152,7 @@
 </tbody></table>
 
 <h4 id="verb-put">Verb: <code class="prettyprint">PUT</code></h4>
-<pre class="highlight shell"><code>Example Return Value
+<pre class="highlight shell"><code>Example Return Value <span class="k">for</span> <span class="c">#PUT</span>
 
 <span class="o">{</span>
 
@@ -193,7 +196,7 @@ A JSON object containing the email of the newly created user and their full vali
 <h2 id="route-lt-username-gt">Route:  <code class="prettyprint">/&lt;username&gt;</code></h2>
 
 <h4 id="verb-get">Verb: <code class="prettyprint">GET</code></h4>
-<pre class="highlight shell"><code>Example Return Value
+<pre class="highlight shell"><code>Example Return Value <span class="k">for</span> <span class="c">#GET</span>
   <span class="o">{</span>
     <span class="s2">"email"</span>: <span class="s2">"moo@gmail.com"</span>,
     <span class="s2">"username"</span>: <span class="s2">"moosausage"</span>,

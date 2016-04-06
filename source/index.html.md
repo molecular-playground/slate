@@ -67,13 +67,6 @@ Creates a new user.
 ## Route:  `/<username>`
 
 #### Verb: `GET`
-
-Gets the user with username `<username>`.
-
-|   Parameter   |  Description  |
-|---------------|---------------|
-| N/A | N/A |
-
 ```shell
 Example Return Value
   {
@@ -89,6 +82,13 @@ Example Return Value
   Description:
   The full user object whose username matches the one given in the route
 ```
+
+Gets the user with username `<username>`.
+
+|   Parameter   |  Description  |
+|---------------|---------------|
+| N/A | N/A |
+
 #### Verb: `DELETE`
 
 ***Authentication required***

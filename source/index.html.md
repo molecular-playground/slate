@@ -266,18 +266,23 @@ Renames a specific playlist for the authenticated user.
 
 A microservice for retrieving the full list of Molecular Playground molecules.
 
-## Route Prefix: `/molecules`
+Route Prefix: `/molecules`
 
 ## Route:  `/`
 
 #### Verb: `GET`
 
+```shell
+Example return value for #GET:
+  [
+  {
+    "name": "water",
+    "link": "http://mshosting:3000/h20.pb"
+  }
+  ]
+Description:
+  An array of JSON molecule objects containing the name and link properties.
+```
+
+
 Returns all molecule details contained in the database.
-
-|   Parameter   |  Description  |
-|---------------|---------------|
-| n/a | n/a |
-
-|  Example Return Value   |  Description  |
-|---------------|---------------|
-| [{"name": "water", "link": "http://mshosting:3000/h20.pb"}] | An array of JSON objects containing the NAME and LINK properties. |

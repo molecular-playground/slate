@@ -353,11 +353,33 @@ Description:
 
 <p>A microservice for managing schedules and playlists.</p>
 
-<h2 id="route-prefix-schedule">Route Prefix: <code class="prettyprint">/schedule</code></h2>
+<p>Route Prefix: <code class="prettyprint">/schedule</code></p>
 
 <h2 id="route-lt-username-gt">Route:  <code class="prettyprint">/&lt;username&gt;</code></h2>
 
 <h4 id="verb-get">Verb: <code class="prettyprint">GET</code></h4>
+<pre class="highlight shell"><code>Example <span class="k">return </span>value <span class="k">for</span> <span class="c">#GET:</span>
+<span class="o">{</span>
+  <span class="s2">"schedule"</span>: <span class="o">[</span>
+      <span class="o">{</span><span class="s2">"pid"</span>:1,<span class="s2">"startTime"</span>:<span class="s2">"2:00pm"</span><span class="o">}</span>,
+      <span class="o">{</span><span class="s2">"pid"</span>:2,<span class="s2">"startTime"</span>:<span class="s2">"4:00pm"</span><span class="o">}</span>,
+      <span class="o">{</span><span class="s2">"pid"</span>:3,<span class="s2">"startTime"</span>:<span class="s2">"6:00pm"</span><span class="o">}</span>,
+      <span class="o">{</span><span class="s2">"pid"</span>:1,<span class="s2">"startTime"</span>:<span class="s2">"6:00pm"</span><span class="o">}</span>
+      <span class="o">]</span>,
+  <span class="s2">"playlists"</span>: <span class="o">{</span>
+      <span class="s2">"1"</span>: <span class="o">[</span>1, 3, 3, 2],
+      <span class="s2">"2"</span>: <span class="o">[</span>2, 1, 3],
+      <span class="s2">"3"</span>: <span class="o">[</span>3, 2, 1]
+  <span class="o">}</span>,
+  <span class="s2">"molecules"</span>: <span class="o">{</span>
+      <span class="s2">"1"</span>: <span class="s2">"link 1"</span>,
+      <span class="s2">"2"</span>: <span class="s2">"link 2"</span>,
+      <span class="s2">"3"</span>: <span class="s2">"link 3"</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+Description: JSON object of schedule data <span class="k">for </span>a user
+</code></pre>
 
 <p>Gets the single schedule and the playlists for said schedule for the user with username <code class="prettyprint">&lt;username&gt;</code>.</p>
 
@@ -378,6 +400,19 @@ Description:
 <h4 id="verb-get">Verb: <code class="prettyprint">GET</code></h4>
 
 <p><strong><em>Authentication required</em></strong></p>
+<pre class="highlight shell"><code>Example <span class="k">return </span>value <span class="k">for</span> <span class="c">#GET:</span>
+<span class="o">{</span>
+  <span class="s2">"schedule"</span>: <span class="o">[</span>
+      <span class="o">{</span><span class="s2">"pid"</span>:1,<span class="s2">"startTime"</span>:<span class="s2">"2:00pm"</span><span class="o">}</span>,
+      <span class="o">{</span><span class="s2">"pid"</span>:2,<span class="s2">"startTime"</span>:<span class="s2">"4:00pm"</span><span class="o">}</span>,
+      <span class="o">{</span><span class="s2">"pid"</span>:3,<span class="s2">"startTime"</span>:<span class="s2">"6:00pm"</span><span class="o">}</span>,
+      <span class="o">{</span><span class="s2">"pid"</span>:1,<span class="s2">"startTime"</span>:<span class="s2">"6:00pm"</span><span class="o">}</span>
+  <span class="o">]</span>
+<span class="o">}</span>
+
+Description:
+Single element json object containing an array of json objects
+</code></pre>
 
 <p>Gets the single schedule for the authenticated user and all of the user&rsquo;s playlists.</p>
 
@@ -396,6 +431,12 @@ Description:
 <h4 id="verb-post">Verb: <code class="prettyprint">POST</code></h4>
 
 <p><strong><em>Authentication required</em></strong></p>
+<pre class="highlight shell"><code>Example <span class="k">return </span>value <span class="k">for</span> <span class="c">#POST</span>
+<span class="o">{</span>
+  success: <span class="nb">true</span>,
+  message: <span class="s1">'Updated schedule for user '</span> + userid
+<span class="o">}</span>
+</code></pre>
 
 <p>Updates the single schedule for the authenticated user.</p>
 
@@ -418,6 +459,27 @@ Description:
 <h4 id="verb-get">Verb: <code class="prettyprint">GET</code></h4>
 
 <p><strong><em>Authentication required</em></strong></p>
+<pre class="highlight shell"><code>Example <span class="k">return </span>value <span class="k">for</span> <span class="c">#GET</span>
+<span class="o">{</span>
+  <span class="s2">"playlists"</span>: <span class="o">[</span>
+      <span class="o">{</span>
+          <span class="s2">"pid"</span>:1,
+          <span class="s2">"name"</span>:<span class="s2">"awesome playlist 1"</span>,
+          <span class="s2">"playlist"</span>:[1,2,3]
+      <span class="o">}</span>,
+      <span class="o">{</span>
+          <span class="s2">"pid"</span>:2,
+          <span class="s2">"name"</span>:<span class="s2">"awesome playlist 2"</span>,
+          <span class="s2">"playlist"</span>:[4,1,5]
+      <span class="o">}</span>,
+      <span class="o">{</span>
+          <span class="s2">"pid"</span>:3,
+          <span class="s2">"name"</span>:<span class="s2">"awesome playlist 3"</span>,
+          <span class="s2">"playlist"</span>:[3,2,2]
+      <span class="o">}</span>
+  <span class="o">]</span>
+<span class="o">}</span>
+</code></pre>
 
 <p>Gets all the playlists for the authenticated user.</p>
 
@@ -436,6 +498,12 @@ Description:
 <h4 id="verb-post">Verb: <code class="prettyprint">POST</code></h4>
 
 <p><strong><em>Authentication required</em></strong></p>
+<pre class="highlight shell"><code>Example <span class="k">return </span>value <span class="k">for</span> <span class="c">#POST</span>
+<span class="o">{</span>
+      success: <span class="nb">true</span>,
+      message: <span class="s1">'Updated playlist '</span> + data.pid
+  <span class="o">}</span>
+</code></pre>
 
 <p>Updates a specified playlist for the authenticated user.</p>
 
@@ -455,11 +523,16 @@ Description:
 </tr>
 </tbody></table>
 
-<h2 id="route">Route:  <code class="prettyprint">/</code></h2>
-
 <h4 id="verb-put">Verb: <code class="prettyprint">PUT</code></h4>
 
 <p><strong><em>Authentication required</em></strong></p>
+<pre class="highlight shell"><code>Example <span class="k">return </span>value <span class="k">for</span> <span class="c">#PUT</span>
+<span class="o">{</span>
+        success: <span class="nb">true</span>,
+        message: <span class="s2">"Added playlist"</span>,
+        pid: playlistID
+    <span class="o">}</span>
+</code></pre>
 
 <p>Creates a new playlist for the authenticated user.</p>
 
@@ -483,7 +556,14 @@ Description:
 
 <h4 id="verb-post">Verb: <code class="prettyprint">POST</code></h4>
 
-<p><strong><em>Authentication required</em></strong></p>
+<p><strong><em>Authentication required</em></strong>
+<code class="prettyprint">shell
+Example return value for #POST
+{
+    success: true,
+    message: &#39;Playlist &#39; + data.pid + &#39; renamed to &#39; + data.name
+}
+</code></p>
 
 <p>Renames a specific playlist for the authenticated user.</p>
 

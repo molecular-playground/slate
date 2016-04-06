@@ -507,37 +507,23 @@ Description:
 
 <p>A microservice for retrieving the full list of Molecular Playground molecules.</p>
 
-<h2 id="route-prefix-molecules">Route Prefix: <code class="prettyprint">/molecules</code></h2>
+<p>Route Prefix: <code class="prettyprint">/molecules</code></p>
 
 <h2 id="route">Route:  <code class="prettyprint">/</code></h2>
 
 <h4 id="verb-get">Verb: <code class="prettyprint">GET</code></h4>
+<pre class="highlight shell"><code>Example <span class="k">return </span>value <span class="k">for</span> <span class="c">#GET:</span>
+  <span class="o">[</span>
+  <span class="o">{</span>
+    <span class="s2">"name"</span>: <span class="s2">"water"</span>,
+    <span class="s2">"link"</span>: <span class="s2">"http://mshosting:3000/h20.pb"</span>
+  <span class="o">}</span>
+  <span class="o">]</span>
+Description:
+  An array of JSON molecule objects containing the name and link properties.
+</code></pre>
 
 <p>Returns all molecule details contained in the database.</p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>n/a</td>
-<td>n/a</td>
-</tr>
-</tbody></table>
-
-<table><thead>
-<tr>
-<th>Example Return Value</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>[{&ldquo;name&rdquo;: &ldquo;water&rdquo;, &ldquo;link&rdquo;: &ldquo;http://mshosting:3000/h20.pb&rdquo;}]</td>
-<td>An array of JSON objects containing the NAME and LINK properties.</td>
-</tr>
-</tbody></table>
 
       </div>
       <div class="dark-box">

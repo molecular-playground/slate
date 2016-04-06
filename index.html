@@ -556,14 +556,15 @@ Single element json object containing an array of json objects
 
 <h4 id="verb-post">Verb: <code class="prettyprint">POST</code></h4>
 
-<p><strong><em>Authentication required</em></strong>
-<code class="prettyprint">shell
-Example return value for #POST
-{
-    success: true,
-    message: &#39;Playlist &#39; + data.pid + &#39; renamed to &#39; + data.name
-}
-</code></p>
+<p><strong><em>Authentication required</em></strong></p>
+<pre class="highlight shell"><code>
+Example <span class="k">return </span>value <span class="k">for</span> <span class="c">#POST</span>
+<span class="o">{</span>
+    success: <span class="nb">true</span>,
+    message: <span class="s1">'Playlist '</span> + data.pid + <span class="s1">' renamed to '</span> + data.name
+<span class="o">}</span>
+
+</code></pre>
 
 <p>Renames a specific playlist for the authenticated user.</p>
 

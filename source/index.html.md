@@ -338,12 +338,15 @@ Creates a new playlist for the authenticated user.
 #### Verb: `POST`
 
 ***Authentication required***
+
 ```shell
+
 Example return value for #POST
 {
     success: true,
     message: 'Playlist ' + data.pid + ' renamed to ' + data.name
 }
+
 ```
 
 Renames a specific playlist for the authenticated user.

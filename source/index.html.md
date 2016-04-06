@@ -46,7 +46,7 @@ Creates a new user.
 | email | the user's email |
 | location | (optional) the "stringified" location of the Molecular Playground installation |
 
-    Example Return Value
+    ```Example Return Value
 
       {
 
@@ -58,7 +58,7 @@ Creates a new user.
 
       Description:
 
-        A JSON object containing the email of the newly created user and their full validation URL
+        A JSON object containing the email of the newly created user and their full validation URL```
 
 ## Route:  `/<username>`
 

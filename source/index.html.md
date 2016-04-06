@@ -22,7 +22,7 @@ Route Prefix: `/user`
 
 
 ```shell
-Example return value
+Example return value for #GET
 
 ["aaron", "alec", "tim", "ethan"],
 

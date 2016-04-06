@@ -47,11 +47,17 @@ Creates a new user.
 | location | (optional) the "stringified" location of the Molecular Playground installation |
 
     Example Return Value
+
       {
+
         "email": "moo@gmail.com",
+
         "link": "http://ms-email:3000/validate?email=moo@gmail.com&key=98CAD8C65ADBF2"
+
       }
+
       Description:
+
         A JSON object containing the email of the newly created user and their full validation URL
 
 ## Route:  `/<username>`

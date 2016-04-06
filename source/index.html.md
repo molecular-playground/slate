@@ -94,6 +94,16 @@ Gets the user with username `<username>`.
 
 #### Verb: `DELETE`
 
+```shell
+Example return value for #DELETE:
+  {
+    success: true,
+    message: "Deleted moosausage"
+  }
+Description:
+  JSON object with success or fail and a cute string message
+```
+
 ***Authentication required***
 
 Deletes the user with username `<username>`.
@@ -102,33 +112,24 @@ Deletes the user with username `<username>`.
 |---------------|---------------|
 | N/A | N/A |
 
-    Example return value:
-      {
-        success: true,
-        message: "Deleted moosausage"
-      }
-    Description:
-      JSON object with success or fail and a cute string message
-
 ## Route:  `/validate`
 
 #### Verb: `POST`
-
+```shell
+Example return value: for #POST
+{
+  "success": "true",
+  "message": "Validated moo@gmail.com"
+}
+Description:
+  A JSON object containing the a message that says a user's email has been validated
+```
 Sets a user's `validated` property to `true`.
 
 |   Parameter   |  Description  |
 |---------------|---------------|
 | email | the user's email |
 | key | the validation string sent to the user via email |
-
-    Example return value:
-    {
-      "success": "true",
-      "message": "Validated moo@gmail.com"
-    }
-    Description:
-      A JSON object containing the a message that says a user's email has been validated
-
 
 # ms-email
 
@@ -139,7 +140,12 @@ Route Prefix: `/email`
 ## Route:  `/general`
 
 #### Verb: `PUT`
-
+```shell
+Example return value for #PUT:
+  "Message sent!"
+Description:
+  A confirmation string.
+```
 Sends an email to the specified address.
 
 |   Parameter   |  Description  |
@@ -149,26 +155,22 @@ Sends an email to the specified address.
 | html | the message body, formatted as html |
 | text | the message body, formatted as plaintext as a fallback |
 
-    Example return value:
-      "Message sent!"
-    Description:
-      A confirmation string.
-
 ## Route: `/validate`
 
 #### Verb: `PUT`
 
+```shell
+Example return value for #PUT:
+  "Message sent!"
+Description:
+  A confirmation string.
+```
 Sends a validation email to a newly registered user.
 
 |   Parameter   |  Description  |
 |---------------|---------------|
 | email | the user's email |
 | link | the full URL with validation key |
-
-    Example return value:
-      "Message sent!"
-    Description:
-      A confirmation string.
 
 # ms-schedule
 

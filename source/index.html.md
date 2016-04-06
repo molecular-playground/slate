@@ -176,7 +176,7 @@ Sends a validation email to a newly registered user.
 
 A microservice for managing schedules and playlists.
 
-## Route Prefix: `/schedule`
+Route Prefix: `/schedule`
 
 ## Route:  `/<username>`
 

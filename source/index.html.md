@@ -369,15 +369,94 @@ Route Prefix: `/molecules`
 
 ```shell
 Example return value for #GET:
-  [
   {
-    "name": "water",
-    "link": "http://mshosting:3000/h20.pb"
+    "success":true,
+    "message": [
+      {
+        "mid":1
+        "name":"4CS1",
+        "link":"http://104.236.54.250:8000/api/molecule/files/159ba9f22a319144d9fac8ec7843136f"
+      }
+    ]
   }
-  ]
+  
 Description:
   An array of JSON molecule objects containing the name and link properties.
 ```
 
-
 Returns all molecule details contained in the database.
+
+## Route:  `/<name>`
+
+#### Verb: `GET`
+
+```shell
+Example return value for #GET:
+  {
+    "success":true,
+    "message": [
+      {
+        "mid":1
+        "name":"4CS1",
+        "link":"http://104.236.54.250:8000/api/molecule/files/159ba9f22a319144d9fac8ec7843136f"
+      }
+    ]
+  }
+  
+Description:
+  An array of JSON molecule objects whose name is "like" the one passed to this route.
+```
+
+Returns all molecule details contained in the database whose name is "like" the one passed to this route.
+
+## Route:  `/upload`
+
+#### Verb: `POST`
+
+```shell
+Example return value for #POST:
+  {
+    "success":true,
+    "message": {
+      "success": true,
+      "message": "d7fb73cb4edd1bec576701ab1aab3715"
+    }
+  }
+  
+Description:
+  The name of the molecule object as it is saved in the microservice.
+```
+
+Returns the name of the molecule object as it is saved in the microservice. This name is used to construct the file's URL.
+
+|   Parameter   |  Description  |
+|---------------|---------------|
+| molecule | the molecule file being uploaded |
+| name | the new name of the molecule |
+| type | ??? (String) |
+
+## Route:  `/files/<filename>`
+
+#### Verb: `GET`
+
+```shell
+Example return value for #GET:
+  HEADER    RNA                                     03-MAR-14   4CS1              
+  TITLE     CRYSTAL STRUCTURE OF A SIMPLE DUPLEX KINK TURN, HMKT-7 WITH           
+  TITLE    2 2 MG BOUND.                                                          
+  COMPND    MOL_ID: 1;                                                            
+  COMPND   2 MOLECULE: 5'-(*GP*GP*CP*GP*AP*AP*GP*AP*AP*CP*CP*GP*GP*GP             
+  COMPND   3  *GP*AP*GP*CP*CP)-3';                                                
+  COMPND   4 CHAIN: A                                                             
+  SOURCE    MOL_ID: 1;                                                            
+  SOURCE   2 SYNTHETIC: YES;                                                      
+  SOURCE   3 ORGANISM_SCIENTIFIC: HALOARCULA MARISMORTUI;                         
+  SOURCE   4 ORGANISM_TAXID: 2238                                                 
+  KEYWDS    RNA, KINK TURN, METAL ION                                             
+  ...
+  
+Description:
+  The molecule file with the header Content-Type: text/plain.
+```
+
+Returns the molecule file with the header Content-Type: text/plain.

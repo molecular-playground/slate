@@ -594,17 +594,105 @@ Example <span class="k">return </span>value <span class="k">for</span> <span cla
 
 <h4 id="verb-get">Verb: <code class="prettyprint">GET</code></h4>
 <pre class="highlight shell"><code>Example <span class="k">return </span>value <span class="k">for</span> <span class="c">#GET:</span>
-  <span class="o">[</span>
   <span class="o">{</span>
-    <span class="s2">"name"</span>: <span class="s2">"water"</span>,
-    <span class="s2">"link"</span>: <span class="s2">"http://mshosting:3000/h20.pb"</span>
+    <span class="s2">"success"</span>:true,
+    <span class="s2">"message"</span>: <span class="o">[</span>
+      <span class="o">{</span>
+        <span class="s2">"mid"</span>:1
+        <span class="s2">"name"</span>:<span class="s2">"4CS1"</span>,
+        <span class="s2">"link"</span>:<span class="s2">"http://104.236.54.250:8000/api/molecule/files/159ba9f22a319144d9fac8ec7843136f"</span>
+      <span class="o">}</span>
+    <span class="o">]</span>
   <span class="o">}</span>
-  <span class="o">]</span>
+
 Description:
   An array of JSON molecule objects containing the name and link properties.
 </code></pre>
 
 <p>Returns all molecule details contained in the database.</p>
+
+<h2 id="route-lt-name-gt">Route:  <code class="prettyprint">/&lt;name&gt;</code></h2>
+
+<h4 id="verb-get">Verb: <code class="prettyprint">GET</code></h4>
+<pre class="highlight shell"><code>Example <span class="k">return </span>value <span class="k">for</span> <span class="c">#GET:</span>
+  <span class="o">{</span>
+    <span class="s2">"success"</span>:true,
+    <span class="s2">"message"</span>: <span class="o">[</span>
+      <span class="o">{</span>
+        <span class="s2">"mid"</span>:1
+        <span class="s2">"name"</span>:<span class="s2">"4CS1"</span>,
+        <span class="s2">"link"</span>:<span class="s2">"http://104.236.54.250:8000/api/molecule/files/159ba9f22a319144d9fac8ec7843136f"</span>
+      <span class="o">}</span>
+    <span class="o">]</span>
+  <span class="o">}</span>
+
+Description:
+  An array of JSON molecule objects whose name is <span class="s2">"like"</span> the one passed to this route.
+</code></pre>
+
+<p>Returns all molecule details contained in the database whose name is &ldquo;like&rdquo; the one passed to this route.</p>
+
+<h2 id="route-upload">Route:  <code class="prettyprint">/upload</code></h2>
+
+<h4 id="verb-post">Verb: <code class="prettyprint">POST</code></h4>
+<pre class="highlight shell"><code>Example <span class="k">return </span>value <span class="k">for</span> <span class="c">#POST:</span>
+  <span class="o">{</span>
+    <span class="s2">"success"</span>:true,
+    <span class="s2">"message"</span>: <span class="o">{</span>
+      <span class="s2">"success"</span>: <span class="nb">true</span>,
+      <span class="s2">"message"</span>: <span class="s2">"d7fb73cb4edd1bec576701ab1aab3715"</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+Description:
+  The name of the molecule object as it is saved <span class="k">in </span>the microservice.
+</code></pre>
+
+<p>Returns the name of the molecule object as it is saved in the microservice. This name is used to construct the file&rsquo;s URL.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>molecule</td>
+<td>the molecule file being uploaded</td>
+</tr>
+<tr>
+<td>name</td>
+<td>the new name of the molecule</td>
+</tr>
+<tr>
+<td>type</td>
+<td>??? (String)</td>
+</tr>
+</tbody></table>
+
+<h2 id="route-files-lt-filename-gt">Route:  <code class="prettyprint">/files/&lt;filename&gt;</code></h2>
+
+<h4 id="verb-get">Verb: <code class="prettyprint">GET</code></h4>
+<pre class="highlight shell"><code>Example <span class="k">return </span>value <span class="k">for</span> <span class="c">#GET:</span>
+  HEADER    RNA                                     03-MAR-14   4CS1              
+  TITLE     CRYSTAL STRUCTURE OF A SIMPLE DUPLEX KINK TURN, HMKT-7 WITH           
+  TITLE    2 2 MG BOUND.                                                          
+  COMPND    MOL_ID: 1;                                                            
+  COMPND   2 MOLECULE: 5<span class="s1">'-(*GP*GP*CP*GP*AP*AP*GP*AP*AP*CP*CP*GP*GP*GP             
+  COMPND   3  *GP*AP*GP*CP*CP)-3'</span>;                                                
+  COMPND   4 CHAIN: A                                                             
+  SOURCE    MOL_ID: 1;                                                            
+  SOURCE   2 SYNTHETIC: YES;                                                      
+  SOURCE   3 ORGANISM_SCIENTIFIC: HALOARCULA MARISMORTUI;                         
+  SOURCE   4 ORGANISM_TAXID: 2238                                                 
+  KEYWDS    RNA, KINK TURN, METAL ION                                             
+  ...
+
+Description:
+  The molecule file with the header Content-Type: text/plain.
+</code></pre>
+
+<p>Returns the molecule file with the header Content-Type: text/plain.</p>
 
       </div>
       <div class="dark-box">

@@ -473,7 +473,7 @@ Returns the name of the molecule object as it is saved in the microservice. This
 |---------------|---------------|
 | molecule | the molecule file being uploaded |
 | name | the new name of the molecule |
-| type | ??? (String) |
+| type | the filetype of the molecule file |
 
 ## Route:  `/files/<filename>`
 

@@ -160,9 +160,9 @@ Example return value: for #POST
   "message": "Updated password for molecularplayground@gmail.com."
 }
 Description:
-  A JSON object stating a reset email has been sent successfully.
+  A JSON object stating a password has been successfully reset.
 ```
-Sends an email with a password reset link to the provided address.
+Given a user's email, resets their password to the given value assuming the key we've saved matched the key given.
 
 |   Parameter   |  Description  |
 |---------------|---------------|

@@ -659,8 +659,9 @@ Example <span class="k">return </span>value <span class="k">for</span> <span cla
     <span class="s2">"message"</span>: <span class="o">[</span>
       <span class="o">{</span>
         <span class="s2">"mid"</span>:1
-        <span class="s2">"name"</span>:<span class="s2">"4CS1"</span>,
-        <span class="s2">"link"</span>:<span class="s2">"http://104.236.54.250:8000/api/molecule/files/159ba9f22a319144d9fac8ec7843136f"</span>
+        <span class="s2">"name"</span>:<span class="s2">"4CS1.pdb"</span>,
+        <span class="s2">"link"</span>:<span class="s2">"http://104.236.54.250:8000/api/molecule/files/159ba9f22a319144d9fac8ec7843136f"</span>,
+        <span class="s2">"type"</span>:<span class="s2">"pdb"</span>
       <span class="o">}</span>
     <span class="o">]</span>
   <span class="o">}</span>
@@ -680,8 +681,9 @@ Description:
     <span class="s2">"message"</span>: <span class="o">[</span>
       <span class="o">{</span>
         <span class="s2">"mid"</span>:1
-        <span class="s2">"name"</span>:<span class="s2">"4CS1"</span>,
-        <span class="s2">"link"</span>:<span class="s2">"http://104.236.54.250:8000/api/molecule/files/159ba9f22a319144d9fac8ec7843136f"</span>
+        <span class="s2">"name"</span>:<span class="s2">"4CS1.pdb"</span>,
+        <span class="s2">"link"</span>:<span class="s2">"http://104.236.54.250:8000/api/molecule/files/159ba9f22a319144d9fac8ec7843136f"</span>,
+        <span class="s2">"type"</span>:<span class="s2">"pdb"</span>
       <span class="o">}</span>
     <span class="o">]</span>
   <span class="o">}</span>
@@ -700,7 +702,7 @@ Description:
     <span class="s2">"success"</span>:true,
     <span class="s2">"message"</span>: <span class="o">{</span>
       <span class="s2">"success"</span>: <span class="nb">true</span>,
-      <span class="s2">"message"</span>: <span class="s2">"d7fb73cb4edd1bec576701ab1aab3715"</span>
+      <span class="s2">"message"</span>: <span class="s2">"d7fb73cb4edd1bec576701ab1aab3715.pdb"</span>
     <span class="o">}</span>
   <span class="o">}</span>
 
@@ -708,7 +710,7 @@ Description:
   The name of the molecule object as it is saved <span class="k">in </span>the microservice.
 </code></pre>
 
-<p>Returns the name of the molecule object as it is saved in the microservice. This name is used to construct the file&rsquo;s URL.</p>
+<p>Returns the name of the molecule object as it is saved in the microservice. This name is used to construct the file&rsquo;s URL. Available to authenticated admins only.</p>
 
 <table><thead>
 <tr>

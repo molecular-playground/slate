@@ -414,8 +414,9 @@ Example return value for #GET:
     "message": [
       {
         "mid":1
-        "name":"4CS1",
-        "link":"http://104.236.54.250:8000/api/molecule/files/159ba9f22a319144d9fac8ec7843136f"
+        "name":"4CS1.pdb",
+        "link":"http://104.236.54.250:8000/api/molecule/files/159ba9f22a319144d9fac8ec7843136f",
+        "type":"pdb"
       }
     ]
   }
@@ -437,8 +438,9 @@ Example return value for #GET:
     "message": [
       {
         "mid":1
-        "name":"4CS1",
-        "link":"http://104.236.54.250:8000/api/molecule/files/159ba9f22a319144d9fac8ec7843136f"
+        "name":"4CS1.pdb",
+        "link":"http://104.236.54.250:8000/api/molecule/files/159ba9f22a319144d9fac8ec7843136f",
+        "type":"pdb"
       }
     ]
   }
@@ -459,7 +461,7 @@ Example return value for #POST:
     "success":true,
     "message": {
       "success": true,
-      "message": "d7fb73cb4edd1bec576701ab1aab3715"
+      "message": "d7fb73cb4edd1bec576701ab1aab3715.pdb"
     }
   }
 
@@ -467,7 +469,7 @@ Description:
   The name of the molecule object as it is saved in the microservice.
 ```
 
-Returns the name of the molecule object as it is saved in the microservice. This name is used to construct the file's URL.
+Returns the name of the molecule object as it is saved in the microservice. This name is used to construct the file's URL. Available to authenticated admins only.
 
 |   Parameter   |  Description  |
 |---------------|---------------|

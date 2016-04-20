@@ -260,7 +260,7 @@ Description:
   <span class="s2">"message"</span>: <span class="s2">"Validated moo@gmail.com"</span>
 <span class="o">}</span>
 Description:
-  A JSON object containing the a message that says a user<span class="s1">'s email has been validated
+  A JSON object containing a message that says a user<span class="s1">'s email has been validated
 </span></code></pre>
 
 <p>Sets a user&rsquo;s <code class="prettyprint">validated</code> property to <code class="prettyprint">true</code>.</p>
@@ -273,11 +273,71 @@ Description:
 </thead><tbody>
 <tr>
 <td>email</td>
-<td>the user&rsquo;s email</td>
+<td>the user&rsquo;s email address</td>
 </tr>
 <tr>
 <td>key</td>
 <td>the validation string sent to the user via email</td>
+</tr>
+</tbody></table>
+
+<h2 id="route-send-reset-email">Route:  <code class="prettyprint">/send-reset-email</code></h2>
+
+<h4 id="verb-post">Verb: <code class="prettyprint">POST</code></h4>
+<pre class="highlight shell"><code>Example <span class="k">return </span>value: <span class="k">for</span> <span class="c">#POST</span>
+<span class="o">{</span>
+  <span class="s2">"success"</span>: <span class="s2">"true"</span>,
+  <span class="s2">"message"</span>: <span class="s2">"Sent password reset email."</span>
+<span class="o">}</span>
+Description:
+  A JSON object stating a reset email has been sent successfully.
+</code></pre>
+
+<p>Sends an email with a password reset link to the provided address.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>the user&rsquo;s email address</td>
+</tr>
+</tbody></table>
+
+<h2 id="route-reset-password">Route:  <code class="prettyprint">/reset-password</code></h2>
+
+<h4 id="verb-post">Verb: <code class="prettyprint">POST</code></h4>
+<pre class="highlight shell"><code>Example <span class="k">return </span>value: <span class="k">for</span> <span class="c">#POST</span>
+<span class="o">{</span>
+  <span class="s2">"success"</span>: <span class="s2">"true"</span>,
+  <span class="s2">"message"</span>: <span class="s2">"Updated password for molecularplayground@gmail.com."</span>
+<span class="o">}</span>
+Description:
+  A JSON object stating a reset email has been sent successfully.
+</code></pre>
+
+<p>Sends an email with a password reset link to the provided address.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>key</td>
+<td>the key sent to the user in the reset email</td>
+</tr>
+<tr>
+<td>email</td>
+<td>the user&rsquo;s email address</td>
+</tr>
+<tr>
+<td>password</td>
+<td>the user&rsquo;s password</td>
 </tr>
 </tbody></table>
 

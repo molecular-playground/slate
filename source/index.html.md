@@ -122,14 +122,54 @@ Example return value: for #POST
   "message": "Validated moo@gmail.com"
 }
 Description:
-  A JSON object containing the a message that says a user's email has been validated
+  A JSON object containing a message that says a user's email has been validated
 ```
 Sets a user's `validated` property to `true`.
 
 |   Parameter   |  Description  |
 |---------------|---------------|
-| email | the user's email |
+| email | the user's email address |
 | key | the validation string sent to the user via email |
+
+## Route:  `/send-reset-email`
+
+#### Verb: `POST`
+```shell
+Example return value: for #POST
+{
+  "success": "true",
+  "message": "Sent password reset email."
+}
+Description:
+  A JSON object stating a reset email has been sent successfully.
+```
+Sends an email with a password reset link to the provided address.
+
+|   Parameter   |  Description  |
+|---------------|---------------|
+| email | the user's email address |
+
+
+## Route:  `/reset-password`
+
+#### Verb: `POST`
+```shell
+Example return value: for #POST
+{
+  "success": "true",
+  "message": "Updated password for molecularplayground@gmail.com."
+}
+Description:
+  A JSON object stating a reset email has been sent successfully.
+```
+Sends an email with a password reset link to the provided address.
+
+|   Parameter   |  Description  |
+|---------------|---------------|
+| key | the key sent to the user in the reset email |
+| email | the user's email address |
+| password | the user's password |
+
 
 # ms-email
 
@@ -379,7 +419,7 @@ Example return value for #GET:
       }
     ]
   }
-  
+
 Description:
   An array of JSON molecule objects containing the name and link properties.
 ```
@@ -402,7 +442,7 @@ Example return value for #GET:
       }
     ]
   }
-  
+
 Description:
   An array of JSON molecule objects whose name is "like" the one passed to this route.
 ```
@@ -422,7 +462,7 @@ Example return value for #POST:
       "message": "d7fb73cb4edd1bec576701ab1aab3715"
     }
   }
-  
+
 Description:
   The name of the molecule object as it is saved in the microservice.
 ```
@@ -454,7 +494,7 @@ Example return value for #GET:
   SOURCE   4 ORGANISM_TAXID: 2238                                                 
   KEYWDS    RNA, KINK TURN, METAL ION                                             
   ...
-  
+
 Description:
   The molecule file with the header Content-Type: text/plain.
 ```
